@@ -17,6 +17,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * This is the main, and probably only activity for the application.
+ * All the pages should be implemented in terms of fragments inside this activity
+ * 
+ * @author Vince
+ *
+ */
+@SuppressWarnings("unused")
 public class MainActivity extends FragmentActivity {
 
 	/**
@@ -33,6 +41,8 @@ public class MainActivity extends FragmentActivity {
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
+	private static final int NUM_PAGES = 5;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +55,7 @@ public class MainActivity extends FragmentActivity {
 				getSupportFragmentManager());
 
 		// Set up the ViewPager with the sections adapter.
-		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager = (ViewPager) findViewById(R.id.pager_main);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
 	}
@@ -68,6 +78,7 @@ public class MainActivity extends FragmentActivity {
 		}
 
 		@Override
+		//TODO Use a case statement ala getPageTitle to return actual fragments
 		public Fragment getItem(int position) {
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
@@ -81,20 +92,23 @@ public class MainActivity extends FragmentActivity {
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
-			return 3;
+			return NUM_PAGES;
 		}
 
 		@Override
 		public CharSequence getPageTitle(int position) {
-			Locale l = Locale.getDefault();
+			Locale l = Locale.getDefault(); //Ignore this
 			switch (position) {
 			case 0:
-				return getString(R.string.title_section1).toUpperCase(l);
+				return getString(R.string.title_section_map);
 			case 1:
-				return getString(R.string.title_section2).toUpperCase(l);
+				return getString(R.string.title_section_poi);
 			case 2:
-				return getString(R.string.title_section3).toUpperCase(l);
+				return getString(R.string.title_section_meetup);
+			case 3:
+				return getString(R.string.title_section_friends);
+			case 4:
+				return getString(R.string.title_section_profile);
 			}
 			return null;
 		}
@@ -112,6 +126,7 @@ public class MainActivity extends FragmentActivity {
 		public static final String ARG_SECTION_NUMBER = "section_number";
 
 		public DummySectionFragment() {
+			
 		}
 
 		@Override
@@ -121,8 +136,8 @@ public class MainActivity extends FragmentActivity {
 					container, false);
 			TextView dummyTextView = (TextView) rootView
 					.findViewById(R.id.section_label);
-			dummyTextView.setText(Integer.toString(getArguments().getInt(
-					ARG_SECTION_NUMBER)));
+			dummyTextView.setText("You are on page " + 
+					Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
 			return rootView;
 		}
 	}

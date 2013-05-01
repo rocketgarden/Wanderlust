@@ -3,8 +3,10 @@
 
     <string name="app_name">Wanderlust</string>
     <string name="action_settings">Settings</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section_map">Map</string>
+    <string name="title_section_poi">POIs</string>
+    <string name="title_section_meetup">MeetUps</string>
+    <string name="title_section_friends">Friends</string>
+    <string name="title_section_profile">Profile</string>
 
 </resources>
