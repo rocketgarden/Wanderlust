@@ -17,14 +17,39 @@ import android.view.Menu;
  */
 public class MainActivity extends Activity{
 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.maptest);
-
 		
-
+		ActionBar actionBar = getActionBar();
+	    actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+	    actionBar.setDisplayShowTitleEnabled(false);
+	    
+	    //Map Page
+	    Tab tab = actionBar.newTab()
+	            .setText(R.string.title_section_map)
+	            .setTabListener(new TabListener<Map_Fragment>(
+	                    this, "map", Map_Fragment.class));
+	    actionBar.addTab(tab);
+	    //POI Page
+	    tab = actionBar.newTab()
+	        .setText(R.string.title_section_poi)
+	        .setTabListener(new TabListener<POI_Fragment>(
+	                this, "poi", POI_Fragment.class));
+	    actionBar.addTab(tab);
+	    //MeetUp Page
+	    tab = actionBar.newTab()
+		        .setText(R.string.title_section_meetup)
+		        .setTabListener(new TabListener<Meetup_Fragment>(
+		                this, "poi", Meetup_Fragment.class));
+		actionBar.addTab(tab);
+		//Profile Page
+		tab = actionBar.newTab()
+		        .setText(R.string.title_section_profile)
+		        .setTabListener(new TabListener<Profile_Fragment>(
+		                this, "poi", Profile_Fragment.class));
+		actionBar.addTab(tab);
+		
 	}
 
 	@Override
@@ -33,6 +58,8 @@ public class MainActivity extends Activity{
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	
 	
 	
 	public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
