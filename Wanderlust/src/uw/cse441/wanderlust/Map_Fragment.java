@@ -6,6 +6,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Map_Fragment extends MapFragment {
 //This class extends the "real" MapFragment class to let us add our own
+	static final String TAG = "Map_Fragment";
 	public void onResume() {
 		super.onResume();
 		getMap().moveCamera(

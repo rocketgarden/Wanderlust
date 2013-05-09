@@ -16,7 +16,8 @@ import android.view.Menu;
  *
  */
 public class MainActivity extends Activity{
-
+	
+	static final String TAG = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,7 +50,6 @@ public class MainActivity extends Activity{
 		        .setTabListener(new TabListener<Profile_Fragment>(
 		                this, "poi", Profile_Fragment.class));
 		actionBar.addTab(tab);
-		
 	}
 
 	@Override
