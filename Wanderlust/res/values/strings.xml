@@ -4,7 +4,7 @@
     <string name="app_name">Wanderlust</string>
     
     <string name="title_section_map">Map</string>
-    <string name="title_section_poi">POIs</string>
+    <string name="title_section_poi">POI</string>
     <string name="title_section_meetup">MeetUps</string>
     <string name="title_section_friends">Friends</string>
     <string name="title_section_profile">Profile</string>
