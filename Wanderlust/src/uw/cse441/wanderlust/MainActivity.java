@@ -19,7 +19,7 @@ import android.view.Menu;
 public class MainActivity extends Activity {
 
 	static final String TAG = "MainActivity";
-	public static PlaceDataProvider pdp;
+	private static PlaceDataProvider pdp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,11 @@ public class MainActivity extends Activity {
 						new TabListener<Profile_Fragment>(this, "profile",
 								Profile_Fragment.class));
 		actionBar.addTab(tab);
+	}
+	
+	public static PlaceDataProvider getPlaceDataProvider(){
+		return pdp;
+		
 	}
 
 	@Override
