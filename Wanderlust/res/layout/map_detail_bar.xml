@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:background="#BFE9FF"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+	    android:id="@+id/topBar_title"
+	   	android:layout_marginTop="5dp" 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Orange Statue"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	<TextView
+	    android:id="@+id/topBar_address"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="N 51st St &amp; Meridan Ave N"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
+
+	    <Button
+			android:id="@+id/testButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="0.35"
+		    android:background="#99CCFF"
+		    android:text="Details"
+		    android:layout_margin="2dp" />
+
+	    <Button
+		    android:id="@+id/meetUpButton"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="0.35"
+		    android:background="#99CCFF"
+		    android:text="MeetUp"
+		    android:layout_margin="2dp"  />
+	</LinearLayout>
+		
+		<Button
+		    android:id="@+id/closeButton"
+		    style="?android:attr/buttonStyleSmall"
+		    android:layout_marginTop="5dp" 
+		    android:layout_width="127dp"
+		    android:layout_height="35dp"
+		    android:background="#BFE9FF"
+		    android:onClick="infoClick"
+		    android:text="/\\" />
+    
+
+</LinearLayout>
