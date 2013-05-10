@@ -1,5 +1,6 @@
 package uw.cse441.wanderlust;
 
+import uw.cse441.wanderlust.utility.*;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -18,10 +19,12 @@ import android.view.Menu;
 public class MainActivity extends Activity {
 
 	static final String TAG = "MainActivity";
+	public static PlaceDataProvider pdp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		pdp = new PlaceDataProvider();
 
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -48,7 +51,7 @@ public class MainActivity extends Activity {
 				.newTab()
 				.setText(R.string.title_section_meetup)
 				.setTabListener(
-						new TabListener<Meetup_Fragment>(this, "poi",
+						new TabListener<Meetup_Fragment>(this, "meetup",
 								Meetup_Fragment.class));
 		actionBar.addTab(tab);
 		// Profile Page
@@ -56,7 +59,7 @@ public class MainActivity extends Activity {
 				.newTab()
 				.setText(R.string.title_section_profile)
 				.setTabListener(
-						new TabListener<Profile_Fragment>(this, "poi",
+						new TabListener<Profile_Fragment>(this, "profile",
 								Profile_Fragment.class));
 		actionBar.addTab(tab);
 	}
