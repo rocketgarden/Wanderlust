@@ -25,7 +25,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		pdp = new PlaceDataProvider();
-
+		loadDatabase();
+		
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setDisplayShowTitleEnabled(false);
@@ -69,6 +70,10 @@ public class MainActivity extends Activity {
 		
 	}
 
+	public void loadDatabase(){
+		// Todo create meets and pois and put in database
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
