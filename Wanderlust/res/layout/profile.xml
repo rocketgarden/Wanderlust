@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E8E8" >
+    
+    <ImageButton
+        android:id="@+id/profpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/meetup"
+        android:layout_marginLeft="8dp"
+        android:src="@android:drawable/picture_frame" />
+    
+    <Button
+        android:id="@+id/poi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/profpic"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/profpic"
+        android:background="#3D3D3D"
+        android:textColor="#C6C6C6"
+        android:text="3POI&apos;s" />
+
+    <Button
+        android:id="@+id/meetup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/poi"
+        android:background="#3D3D3D"
+        android:textColor="#C6C6C6"
+        android:text="3 Meetup's" />
+    
+    <Button
+        android:id="@+id/friends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/meetup"
+        android:background="#3D3D3D"
+        android:textColor="#C6C6C6"
+        android:text="Friends" />
+
+    <Button
+        android:id="@+id/editprof"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/poi"
+        android:layout_alignRight="@+id/friends"
+        android:layout_below="@+id/poi"
+        android:layout_marginTop="8dp"
+        android:background="#3D3D3D"
+        android:text="Edit Your Profile"
+        android:textColor="#C6C6C6" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/poi"
+        android:layout_toLeftOf="@+id/poi"
+        android:gravity="center"
+        android:text="Tom Sawyer" />
+    
+    <AutoCompleteTextView
+        android:id="@+id/Yourpois"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="110dp"
+        android:ems="10"
+        android:text="Your Point&apos;s of Interest" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Yourpois"
+        android:layout_toLeftOf="@+id/editprof"
+        android:text="TextView" />
+
+</RelativeLayout>
