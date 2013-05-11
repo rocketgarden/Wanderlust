@@ -15,6 +15,14 @@ public abstract class Place {
 	public abstract String getTitle();
 
 	public abstract void setTitle(String title);
+	
+	public abstract String getAddress();
+
+	public abstract void setAddress(String address);
+	
+	public abstract int getId();
+
+	public abstract void setId(int id);
 
 	/**
 	 * @return Pair of Latitude, Longitude values
