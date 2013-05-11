@@ -5,7 +5,7 @@
     android:background="#E8E8E8" >
 
     <AutoCompleteTextView
-        android:id="@+id/poititle"
+        android:id="@+id/meetuptitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -14,14 +14,14 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="30dp"
         android:ems="10"
-        android:text="Point&apos;s of Interest" />
+        android:text="Meetups" />
 
     <ListView
-        android:id="@+id/poilist"
+        android:id="@+id/meetuplist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/poititle"
-        android:layout_below="@+id/poititle">
+        android:layout_alignLeft="@+id/meetuptitle"
+        android:layout_below="@+id/meetuptitle">
     </ListView>
 
     <ImageButton
