@@ -1,12 +1,18 @@
 package uw.cse441.wanderlust;
 
+import java.io.IOException;
+import java.util.List;
+
 import uw.cse441.wanderlust.utility.*;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.Menu;
 
 /**
@@ -71,7 +77,47 @@ public class MainActivity extends Activity {
 	}
 
 	public void loadDatabase(){
-		// Todo create meets and pois and put in database
+        // create pois
+		POI p1 = new POI("N 51st St & Meridian Ave N Seattle", 
+        		addressToLocation("N 51st St & Meridian Ave N Seattle"), 
+        		"Orange Statue", null, pdp.getNextPoiId(), null);
+        pdp.addPOI(p1);
+        
+        POI p2 = new POI("N 57th St & Kensington Place N Seattle", 
+        		addressToLocation("N 57th St & Kensington Place N Seattle"), 
+        		"Historic Landmark", null, pdp.getNextPoiId(), null);
+        pdp.addPOI(p2);
+        
+        POI p3 = new POI("NE 54th St & Meridian Ave N Seattle", 
+        		addressToLocation("NE 54th St & Meridian Ave N Seattle"), 
+        		"Diner", null, pdp.getNextPoiId(), null);
+        pdp.addPOI(p3);
+        
+        // create meetups
+        Meetup m1 = new Meetup("3875 N 51st St Seattle", 
+        		addressToLocation("3875 N 51st St Seattle"), 
+        		"Cool Park", null, pdp.getnextMeetupId(), "5/20/13, 7:00pm-9:00pm", "You, Johnny007, T63");
+        pdp.addMeetup(m1);
+        
+        Meetup m2 = new Meetup("N 50st St & 7th Ave N Seattle", 
+        		addressToLocation("N 50st St & 7th Ave N Seattle"), 
+        		"Boat Rentals", null, pdp.getnextMeetupId(), "5/25/13, 1:00pm-3:00pm", "You, Dude2341, Patrick123");
+        pdp.addMeetup(m2);
+	}
+	
+	private Pair<Float, Float> addressToLocation(String streetAddress){
+		Geocoder coder = new Geocoder(this);
+	    List<Address> address;
+        try {
+			address = coder.getFromLocationName(streetAddress,5);
+		    if (address != null) {
+		        Address location = address.get(0);
+		        return new Pair<Float, Float>((float)location.getLatitude(), (float)location.getLongitude());
+		    }
+        } catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	@Override
