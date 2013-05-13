@@ -14,6 +14,13 @@
     <string name="action_search">Search</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_addpoi">Add POI</string>
-    <string name="action_addmeetup">Add MeetUp</string>
+    <string name="action_addmeetup">Add MeetUp</string><string name="new_poi_name_label">Name</string>
+    
+    <string name="new_poi_address_label">Address</string>
+    <string name="new_poi_description_label">Description</string>
+    <string name="new_poi_photo_upload">Upload a photo (optional)</string>
+    <string name="new_poi_browse_button">Browse</string>
+    <string name="new_poi_image_text">image.jpg</string>
+    <string name="new_poi_create_button">Create</string>
 
 </resources>
