@@ -109,16 +109,17 @@ public class MainActivity extends Activity {
 	private Pair<Float, Float> addressToLocation(String streetAddress){
 		Geocoder coder = new Geocoder(this);
 	    List<Address> address;
+	    Pair<Float,Float> latLong = null;
         try {
 			address = coder.getFromLocationName(streetAddress,5);
 		    if (address != null && address.size() != 0) {
 		        Address location = address.get(0);
-		        return new Pair<Float, Float>((float)location.getLatitude(), (float)location.getLongitude());
+		        latLong = new Pair<Float, Float>((float)location.getLatitude(), (float)location.getLongitude());
 		    }
         } catch (IOException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return latLong;
 	}
 	
 	@Override
