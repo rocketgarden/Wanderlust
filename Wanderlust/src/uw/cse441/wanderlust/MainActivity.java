@@ -78,29 +78,30 @@ public class MainActivity extends Activity {
 
 	public void loadDatabase(){
         // create pois
-		POI p1 = new POI("N 51st St & Meridian Ave N Seattle", 
-        		addressToLocation("N 51st St & Meridian Ave N Seattle"), 
+		//N 51st St & Meridian Ave N Seattle
+		POI p1 = new POI("5020 Meridian Avenue North, Seattle, WA", 
+        		addressToLocation("5020 Meridian Avenue North, Seattle, WA"), 
         		"Orange Statue", null, pdp.getNextPoiId(), null);
         pdp.addPOI(p1);
         
-        POI p2 = new POI("N 57th St & Kensington Place N Seattle", 
-        		addressToLocation("N 57th St & Kensington Place N Seattle"), 
+        POI p2 = new POI("N 57th Street, Seattle, WA", 
+        		addressToLocation("N 57th Street, Seattle, WA"), 
         		"Historic Landmark", null, pdp.getNextPoiId(), null);
         pdp.addPOI(p2);
         
-        POI p3 = new POI("NE 54th St & Meridian Ave N Seattle", 
-        		addressToLocation("NE 54th St & Meridian Ave N Seattle"), 
+        POI p3 = new POI("5413 Meridian Avenue North, Seattle, WA", 
+        		addressToLocation("5413 Meridian Avenue North, Seattle, WA"), 
         		"Diner", null, pdp.getNextPoiId(), null);
         pdp.addPOI(p3);
         
         // create meetups
-        Meetup m1 = new Meetup("3875 N 51st St Seattle", 
+        Meetup m1 = new Meetup("3875 N 51st St Seattle, Wa", 
         		addressToLocation("3875 N 51st St Seattle"), 
         		"Cool Park", null, pdp.getnextMeetupId(), "5/20/13, 7:00pm-9:00pm", "You, Johnny007, T63");
         pdp.addMeetup(m1);
         
-        Meetup m2 = new Meetup("N 50st St & 7th Ave N Seattle", 
-        		addressToLocation("N 50st St & 7th Ave N Seattle"), 
+        Meetup m2 = new Meetup("5050 8th Avenue Northeast, Seattle, WA", 
+        		addressToLocation("5050 8th Avenue Northeast, Seattle, WA"), 
         		"Boat Rentals", null, pdp.getnextMeetupId(), "5/25/13, 1:00pm-3:00pm", "You, Dude2341, Patrick123");
         pdp.addMeetup(m2);
 	}
@@ -110,7 +111,7 @@ public class MainActivity extends Activity {
 	    List<Address> address;
         try {
 			address = coder.getFromLocationName(streetAddress,5);
-		    if (address != null) {
+		    if (address != null && address.size() != 0) {
 		        Address location = address.get(0);
 		        return new Pair<Float, Float>((float)location.getLatitude(), (float)location.getLongitude());
 		    }
