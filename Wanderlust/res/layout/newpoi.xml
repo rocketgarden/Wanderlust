@@ -120,7 +120,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/poi_name_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -144,11 +144,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1" >
+        android:layout_below="@+id/poi_name_text" >
     </LinearLayout>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/create_meetup_button"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,10 +161,10 @@
         android:id="@+id/photo_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
+        android:layout_alignBaseline="@+id/create_meetup_button"
+        android:layout_alignBottom="@+id/create_meetup_button"
         android:layout_marginLeft="22dp"
-        android:layout_toRightOf="@+id/button1"
+        android:layout_toRightOf="@+id/create_meetup_button"
         android:text="@string/new_poi_image_text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
