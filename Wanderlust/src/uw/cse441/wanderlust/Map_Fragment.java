@@ -23,11 +23,38 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		currentLocation = new Location("default");
 		currentLocation.setLatitude(47.671369);
 		currentLocation.setLongitude(-122.342603);
 				
 		// Add pois to map
+		
+	}
+	
+	@Override
+	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		super.onCreateView(inflater, container, savedInstanceState);
+		View view = super.onCreateView(inflater, container, savedInstanceState);
+		getMap().setMyLocationEnabled(true);
+		return view;
+		
+	}
+
+	public void onPause() {
+		super.onPause();
+		currentLocation = getMap().getMyLocation();
+		
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(new LatLng(
+				currentLocation.getLatitude(), currentLocation.getLongitude()),
+				14.0f);
+		getMap().moveCamera(cu);
+		
 		for(POI p : MainActivity.getPlaceDataProvider().getPOIList()){
 	        LatLng loc = new LatLng(p.getLocation().first, p.getLocation().second);
 	        getMap().addMarker(new MarkerOptions().position(loc)
@@ -40,28 +67,6 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 	        getMap().addMarker(new MarkerOptions().position(loc)
 	  	          .title('m' + Integer.toString(m.getId())));
 		}
-	}
-	
-	@Override
-	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		View view = super.onCreateView(inflater, container, savedInstanceState);
-		getMap().setMyLocationEnabled(true);
-		return view;
-		
-	}
-
-	public void onPause() {
-		currentLocation = getMap().getMyLocation();
-		
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(new LatLng(
-				currentLocation.getLatitude(), currentLocation.getLongitude()),
-				14.0f);
-		getMap().moveCamera(cu);
 	}
 	
 	@Override
