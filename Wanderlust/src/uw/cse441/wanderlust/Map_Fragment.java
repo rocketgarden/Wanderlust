@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -37,6 +40,12 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 		super.onCreateView(inflater, container, savedInstanceState);
 		View view = super.onCreateView(inflater, container, savedInstanceState);
 		getMap().setMyLocationEnabled(true);
+		
+		// load top bar but set to hidden
+  		getActivity().setContentView(R.layout.map_detail_bar);
+  		LinearLayout topBar = (LinearLayout) getActivity().findViewById(R.id.topBar);
+  		topBar.setVisibility(View.GONE);
+		
 		return view;
 		
 	}
@@ -71,20 +80,25 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 	
 	@Override
 	public boolean onMarkerClick(Marker marker) {
-		// TODO show top bar
+		LinearLayout topBar = (LinearLayout) getActivity().findViewById(R.id.topBar);
+		topBar.setVisibility(View.VISIBLE);
 		String title = marker.getTitle();
 		if (title.charAt(0) == 'm') { // marker represents a marker
-			// TODO hide meetup button
+			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
+			meetupButton.setVisibility(View.GONE);
 			Meetup m = MainActivity.getPlaceDataProvider().getMeetup(title.charAt(1));
-			// TODO fill in text on bar
-			// bar address = m.getAddress();
-			// bar title = m.getTitle();
+			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(m.getAddress());
+			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(m.getTitle());
 		} else { // marker represents a poi
+			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
+			meetupButton.setVisibility(View.VISIBLE);
 			POI p = MainActivity.getPlaceDataProvider().getPOI(title.charAt(1));
-			// TODO fill in text on bar
-			// bar address = p.getAddress();
-			// bar title = p.getTitle();
+			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(p.getAddress());
+			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(p.getTitle());
 		}
+
 		return true;
-	  }
+	 }	
+	
+	
 }

@@ -54,7 +54,7 @@
 		    android:layout_width="127dp"
 		    android:layout_height="35dp"
 		    android:background="#BFE9FF"
-		    android:onClick="infoClick"
+		    android:onClick="closeDetails"
 		    android:text="/\\" />
     
 

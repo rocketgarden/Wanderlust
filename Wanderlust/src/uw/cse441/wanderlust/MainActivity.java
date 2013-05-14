@@ -14,6 +14,9 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 /**
  * This is the main, and probably only activity for the application. All the
@@ -120,6 +123,14 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 		return latLong;
+	}
+	
+	// closes popup on map page
+	public void closeDetails(View v) {
+		LinearLayout topBar = (LinearLayout) findViewById(R.id.topBar);
+		topBar.setVisibility(View.GONE);
+		Button b = (Button) findViewById(R.id.meetUpButton);
+		b.setVisibility(View.VISIBLE);
 	}
 	
 	@Override
