@@ -4,18 +4,6 @@
     android:layout_height="match_parent"
     android:background="#E8E8E8" >
 
-    <AutoCompleteTextView
-        android:id="@+id/poititle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:text="Point&apos;s of Interest" />
-
     <ListView
         android:id="@+id/poilist"
         android:layout_width="match_parent"
@@ -25,21 +13,26 @@
     </ListView>
 
     <ImageButton
-        android:id="@+id/add"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:id="@+id/search"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/poititle"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@android:drawable/ic_menu_add" />
-
-    <ImageButton
-        android:id="@+id/search"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginLeft="8dp"
-        android:layout_alignTop="@+id/add"
+        android:background="#E8E8E8"
         android:src="@android:drawable/ic_menu_search" />
+
+    <AutoCompleteTextView
+        android:id="@+id/poititle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/search"
+        android:ems="10"
+        android:text="Search for Point&apos;s of Interest" >
+
+        <requestFocus />
+    </AutoCompleteTextView>
 
 </RelativeLayout>
