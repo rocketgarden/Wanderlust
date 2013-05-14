@@ -1,6 +1,17 @@
 package uw.cse441.wanderlust;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import uw.cse441.wanderlust.utility.Meetup;
+import uw.cse441.wanderlust.utility.POI;
+
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 public class POI_Fragment extends Fragment {
 	/*
@@ -22,18 +34,6 @@ public class POI_Fragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		    String[] values = new String[] { "place1", "place2", "place3", "place4", "place5", "place6" };
-
-		    ArrayList<String> myList = new ArrayList<String>();
-		    for (int i = 0; i < values.length; ++i) {
-		      myList.add(values[i]);
-		    }
-		    
-//		    ListView lv = (ListView) getActivity().findViewById(R.id.poiList);
-//		    ArrayAdapter<String> myarrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, myList);
-//		    lv.setAdapter(myarrayAdapter);
-//		    lv.setTextFilterEnabled(true);
 	}
 	
 	@Override
@@ -41,6 +41,29 @@ public class POI_Fragment extends Fragment {
 		View view = inflater.inflate(R.layout.poilist, container, false);
 		return view;
 	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+    
+	    // Fill in list view
+	    ListView lv = (ListView) getView().findViewById(R.id.poilist);
+	    List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+	    for (POI p: MainActivity.getPlaceDataProvider().getPOIList()) {
+	        Map<String, String> datum = new HashMap<String, String>(2);
+	        datum.put("title", p.getTitle());
+	        datum.put("address", p.getAddress());
+	        data.add(datum);
+	    }
+	    SimpleAdapter adapter = new SimpleAdapter(getActivity(), data,
+	                                              android.R.layout.simple_list_item_2,
+	                                              new String[] {"title", "address"},
+	                                              new int[] {android.R.id.text1,
+	                                                         android.R.id.text2});
+	    lv.setAdapter(adapter);
+	    lv.setTextFilterEnabled(true);
+	}
+	
 	
 
 }

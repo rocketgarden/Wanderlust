@@ -79,5 +79,13 @@ public class Meetup extends Place {
 	public void setInvited(String invited) {
 		Invited = invited;
 	}
+	
+	public String getDate() {
+		return Date;
+	}
+
+	public void setDate(String date) {
+		Date = date;
+	}
 
 }
