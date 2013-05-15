@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"        
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="text" />
@@ -42,9 +43,8 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"        
         android:inputType="textPostalAddress" >
-
-        <requestFocus />
     </EditText>
 
     <TextView
@@ -63,6 +63,7 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"        
         android:inputType="textMultiLine" />
 
     <TextView

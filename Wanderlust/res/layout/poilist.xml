@@ -31,8 +31,6 @@
         android:layout_toLeftOf="@+id/search"
         android:ems="10"
         android:text="Search for Point&apos;s of Interest" >
-
-        <requestFocus />
     </AutoCompleteTextView>
 
 </RelativeLayout>
