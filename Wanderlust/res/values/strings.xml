@@ -21,8 +21,8 @@
     <string name="new_poi_photo_upload">Upload a photo (optional)</string>
     <string name="new_poi_browse_button">Browse</string>
     <string name="new_poi_image_text">image.jpg</string>
-    <string name="new_poi_create_button">Create</string>
-    <string name="new_meetup_poi_name">Point of Interest</string>
+    <string name="new_poi_create_button">Create New Point of Interest</string>
+    <string name="new_meetup_poi_name">Name</string>
     <string name="new_meetup_date">Date</string>
     <string name="new_meetup_time">Time</string>
     <string name="new_meetup_radio_text">All day event</string>

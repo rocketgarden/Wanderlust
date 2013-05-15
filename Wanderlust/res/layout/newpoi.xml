@@ -1,55 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@style/AppBaseTheme" >
+    android:background="#E8E8E8"
+    
+    android:orientation="vertical" >
 
-    <LinearLayout
-        android:id="@+id/name_text"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/namelabel"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="47dp" >
-
-        <TextView
-            android:id="@+id/namelabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/new_poi_name_label"
-            android:textSize="@dimen/activity_horizontal_margin" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/name_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/linearLayout1"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="21dp" >
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/location_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/name_field" >
-    </LinearLayout>
+        android:layout_marginTop="50sp"
+        android:text="@string/new_poi_name_label"
+        android:layout_marginLeft="5dp"
+        android:textSize="@dimen/activity_horizontal_margin" />
 
     <EditText
         android:id="@+id/name_field"
-        android:layout_width="wrap_content"
+        android:layout_width="304dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/name_text"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#FFFFFF"
         android:ems="10"
         android:inputType="text" />
 
@@ -57,130 +30,83 @@
         android:id="@+id/address_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/location_label"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
         android:text="@string/new_poi_address_label" />
 
-    <LinearLayout
+    <EditText
         android:id="@+id/address_field"
-        android:layout_width="wrap_content"
+        android:layout_width="304dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/address_text"
-        android:layout_marginTop="14dp" >
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:layout_marginLeft="5dp"
+        android:inputType="textPostalAddress" >
 
-        <EditText
-            android:id="@+id/address"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPostalAddress" >
+        <requestFocus />
+    </EditText>
 
-            <requestFocus android:layout_width="match_parent" />
-        </EditText>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/desc_label"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/desc_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/address_field"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical" >
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:text="@string/new_poi_description_label" />
 
-        <TextView
-            android:id="@+id/desc_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/new_poi_description_label" >
-        </TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/desc_field"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/description_field"
+        android:layout_width="304dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/desc_label"
-        android:layout_marginTop="38dp"
-        android:orientation="vertical" >
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/photo_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp" >
-    </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:layout_marginLeft="5dp"
+        android:inputType="textMultiLine" />
 
     <TextView
         android:id="@+id/poi_name_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/desc_field"
         android:layout_marginTop="26dp"
-        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
         android:text="@string/new_poi_photo_upload" />
-
-    <EditText
-        android:id="@+id/description_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/desc_label"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
 
     <LinearLayout
         android:id="@+id/browse_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/poi_name_text" >
+        android:layout_marginTop="16dp" >
+
+        <Button
+            android:id="@+id/create_meetup_button"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="63dp"
+            android:layout_height="wrap_content"
+            android:background="#3D3D3D"
+            android:text="@string/new_poi_browse_button"
+            android:layout_marginLeft="5dp"
+            android:textColor="#C6C6C6" />
+
+        <TextView
+            android:id="@+id/photo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="@string/new_poi_image_text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/create_meetup_button"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:id="@+id/create_poi_button"
+        android:layout_width="278dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/browse_area"
-        android:layout_marginTop="16dp"
-        android:text="@string/new_poi_browse_button" />
+        android:layout_marginTop="70dp"
+        android:background="#3D3D3D"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:text="@string/new_poi_create_button"
+        android:textColor="#C6C6C6" />
 
-    <TextView
-        android:id="@+id/photo_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/create_meetup_button"
-        android:layout_alignBottom="@+id/create_meetup_button"
-        android:layout_marginLeft="22dp"
-        android:layout_toRightOf="@+id/create_meetup_button"
-        android:text="@string/new_poi_image_text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <LinearLayout
-        android:id="@+id/create_button_area"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/new_poi_create_button" />
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>
