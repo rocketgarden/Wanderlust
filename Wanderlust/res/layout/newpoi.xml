@@ -18,7 +18,7 @@
 
     <EditText
         android:id="@+id/name_field"
-        android:layout_width="304dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
@@ -36,7 +36,7 @@
 
     <EditText
         android:id="@+id/address_field"
-        android:layout_width="304dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="#FFFFFF"
@@ -57,7 +57,7 @@
 
     <EditText
         android:id="@+id/description_field"
-        android:layout_width="304dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"

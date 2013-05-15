@@ -16,7 +16,7 @@
 
     <EditText
         android:id="@+id/poi_field"
-        android:layout_width="329dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="5dp"
@@ -35,7 +35,7 @@
 
     <EditText
         android:id="@+id/address_layout"
-        android:layout_width="329dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
@@ -53,7 +53,7 @@
 
     <EditText
         android:id="@+id/date_field2"
-        android:layout_width="329dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
@@ -88,7 +88,7 @@
 
     <EditText
         android:id="@+id/time_input"
-        android:layout_width="329dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
@@ -106,7 +106,7 @@
 
     <EditText
         android:id="@+id/descr_input"
-        android:layout_width="329dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
@@ -126,7 +126,7 @@
 
     <EditText
         android:id="@+id/invite_input_field"
-        android:layout_width="329dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
@@ -141,10 +141,12 @@
     <Button
         android:id="@+id/create_meetup_button"
         style="@style/AppBaseTheme"
-        android:layout_width="294dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        
         android:layout_marginLeft="30dp"
         android:layout_marginTop="100dp"
+        android:layout_marginRight="30dp"
         android:background="#3D3D3D"
         android:text="@string/new_meetup_create_button"
         android:textColor="#C6C6C6" />
