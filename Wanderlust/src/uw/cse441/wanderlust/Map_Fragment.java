@@ -76,6 +76,8 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 	        getMap().addMarker(new MarkerOptions().position(loc)
 	  	          .title('m' + Integer.toString(m.getId())));
 		}
+		
+		getMap().setOnMarkerClickListener(this);
 	}
 	
 	@Override
