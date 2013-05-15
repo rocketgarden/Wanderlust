@@ -79,13 +79,12 @@
             android:layout_marginLeft="5dp"
             android:text="@string/new_meetup_time" />
 
-        <RadioButton
+        <CheckBox
             android:id="@+id/event_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="135dp"
             android:layout_marginRight="0dp"
-            android:checked="@bool/radio_button_checked"
             android:text="@string/new_meetup_radio_text" />
     </LinearLayout>
 
@@ -144,10 +143,8 @@
 
     <Button
         android:id="@+id/create_meetup_button"
-        style="@style/AppBaseTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        
         android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="25dp"

@@ -121,6 +121,7 @@ public class MainActivity extends Activity {
 		        latLong = new Pair<Float, Float>((float)location.getLatitude(), (float)location.getLongitude());
 		    }
         } catch (IOException e) {
+        	latLong = new Pair<Float, Float>((float)0, (float)0);
 			e.printStackTrace();
 		}
 		return latLong;
