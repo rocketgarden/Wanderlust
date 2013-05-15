@@ -149,6 +149,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="25dp"
         android:background="#3D3D3D"
+        android:onClick="addMeetup"
         android:text="@string/new_meetup_create_button"
         android:textColor="#C6C6C6" />
 

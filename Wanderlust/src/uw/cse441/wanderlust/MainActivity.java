@@ -9,6 +9,7 @@ import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.TabActivity;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 /**
@@ -121,9 +123,11 @@ public class MainActivity extends Activity {
 		        latLong = new Pair<Float, Float>((float)location.getLatitude(), (float)location.getLongitude());
 		    }
         } catch (IOException e) {
-        	latLong = new Pair<Float, Float>((float)0, (float)0);
 			e.printStackTrace();
 		}
+        if (latLong == null){
+        	latLong = new Pair<Float, Float>((float)0, (float)0);
+        }
 		return latLong;
 	}
 	
@@ -149,18 +153,53 @@ public class MainActivity extends Activity {
 	        case R.id.action_addpoi:
 				Fragment mFragment = Fragment.instantiate(this, NewPoi_Fragment.class.getName());
 				FragmentTransaction ft = getFragmentManager().beginTransaction();;
-				ft.add(android.R.id.content, mFragment, "new poi");
+				ft.add(android.R.id.content, mFragment, "newpoi");
 				ft.commit();
 	            return true;
 	        case R.id.action_addmeetup:
 				Fragment mFragment1 = Fragment.instantiate(this, NewMeetup_Fragment.class.getName());
 				FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
-				ft1.add(android.R.id.content, mFragment1, "new poi");
+				ft1.add(android.R.id.content, mFragment1, "newmeetup");
 				ft1.commit();
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
+	}
+	
+	public void addPOI(View v) {
+		String name = ((EditText)findViewById(R.id.name_field)).getText().toString();
+		String address = ((EditText)findViewById(R.id.address_field)).getText().toString();
+		String description = ((EditText)findViewById(R.id.description_field)).getText().toString();
+		
+		POI p = new POI(address, 
+        		addressToLocation(address), 
+        		name, description, pdp.getNextPoiId(), null);
+        pdp.addPOI(p);
+        Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
+        FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
+		ft1.remove(poi);
+		ft1.commit();
+		getActionBar().setSelectedNavigationItem(1);
+	}
+	
+	public void addMeetup(View v) {
+		String name = ((EditText)findViewById(R.id.poi_field)).getText().toString();
+		String address = ((EditText)findViewById(R.id.address_layout)).getText().toString();
+		String description = ((EditText)findViewById(R.id.descr_input)).getText().toString();
+		String invited = ((EditText)findViewById(R.id.invite_input_field)).getText().toString();
+		String date = ((EditText)findViewById(R.id.date_field2)).getText().toString();
+		String time = ((EditText)findViewById(R.id.time_input)).getText().toString();
+		
+		Meetup m = new Meetup(address, 
+        		addressToLocation(address), 
+        		name, description, pdp.getnextMeetupId(), date + " " + time, invited);
+        pdp.addMeetup(m);
+        Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
+        FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
+		ft1.remove(poi);
+		ft1.commit();
+		getActionBar().setSelectedNavigationItem(2);
 	}
 
 	public static class TabListener<T extends Fragment> implements
@@ -211,6 +250,15 @@ public class MainActivity extends Activity {
 
 		public void onTabReselected(Tab tab, FragmentTransaction ft) {
 			// User selected the already selected tab. Usually do nothing.
+			// Check if the fragment is already initialized
+			if (mFragment == null) {
+				// If not, instantiate and add it to the activity
+				mFragment = Fragment.instantiate(mActivity, mClass.getName());
+				ft.add(android.R.id.content, mFragment, mTag);
+			} else {
+				// If it exists, simply attach it in order to show it
+				ft.attach(mFragment);
+			}
 		}
 	}
 

@@ -108,6 +108,7 @@
         android:gravity="center"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:onClick="addPOI"
         android:text="@string/new_poi_create_button"
         android:textColor="#C6C6C6" />
 
