@@ -14,6 +14,7 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -138,6 +139,27 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.action_addpoi:
+				Fragment mFragment = Fragment.instantiate(this, NewPoi_Fragment.class.getName());
+				FragmentTransaction ft = getFragmentManager().beginTransaction();;
+				ft.add(android.R.id.content, mFragment, "new poi");
+				ft.commit();
+	            return true;
+	        case R.id.action_addmeetup:
+				Fragment mFragment1 = Fragment.instantiate(this, NewMeetup_Fragment.class.getName());
+				FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
+				ft1.add(android.R.id.content, mFragment1, "new poi");
+				ft1.commit();
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 
 	public static class TabListener<T extends Fragment> implements

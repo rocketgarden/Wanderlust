@@ -27,6 +27,6 @@
     <string name="new_meetup_time">Time</string>
     <string name="new_meetup_radio_text">All day event</string>
     <string name="new_meetup_invite_text">Invite (username or email addresses, separated by commas)</string>
-    <string name="new_meetup_create_button">Create MeetUp</string>
+    <string name="new_meetup_create_button">Create New MeetUp</string>
 
 </resources>

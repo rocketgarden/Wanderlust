@@ -11,7 +11,7 @@
         android:id="@+id/namelabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50sp"
+        android:layout_marginTop="5dp"
         android:text="@string/new_poi_name_label"
         android:layout_marginLeft="5dp"
         android:textSize="@dimen/activity_horizontal_margin" />
@@ -31,7 +31,7 @@
         android:id="@+id/address_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="5dp"
         android:text="@string/new_poi_address_label" />
 
@@ -51,7 +51,7 @@
         android:id="@+id/desc_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="5dp"
         android:text="@string/new_poi_description_label" />
 
@@ -70,7 +70,7 @@
         android:id="@+id/poi_name_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="5dp"
         android:text="@string/new_poi_photo_upload" />
 
@@ -101,12 +101,13 @@
 
     <Button
         android:id="@+id/create_poi_button"
-        android:layout_width="278dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="91dp"
         android:background="#3D3D3D"
         android:gravity="center"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:text="@string/new_poi_create_button"
         android:textColor="#C6C6C6" />
 
