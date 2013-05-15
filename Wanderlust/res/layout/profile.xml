@@ -67,7 +67,7 @@
         android:gravity="center"
         android:text="Tom Sawyer" />
     
-    <AutoCompleteTextView
+    <TextView
         android:id="@+id/Yourpois"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,9 +77,10 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="110dp"
         android:ems="10"
-        android:text="Your Point&apos;s of Interest" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Your Point&apos;s of Interest:" />
     
-     <AutoCompleteTextView
+     <TextView
         android:id="@+id/Yourmeetups"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,14 +90,16 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="310dp"
         android:ems="10"
-        android:text="Your Meetup's" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Your Meetup's:" />
 
      <ListView
-         android:id="@+id/listView1"
+         android:id="@+id/listedmeetups"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_alignLeft="@+id/profpic"
-         android:layout_below="@+id/Yourmeetups" >
+         android:layout_below="@+id/Yourmeetups"
+         android:layout_marginLeft="10dp" >
      </ListView>
 
      <ListView
@@ -104,7 +107,8 @@
          android:layout_width="match_parent"
          android:layout_height="160dp"
          android:layout_alignLeft="@+id/listView1"
-         android:layout_below="@+id/Yourpois" >
+         android:layout_below="@+id/Yourpois"
+         android:layout_marginLeft="10dp" >
 
      </ListView>
 
