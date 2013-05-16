@@ -193,8 +193,24 @@ public class MainActivity extends Activity {
 		
 		Meetup m = new Meetup(address, 
         		addressToLocation(address), 
-        		name, description, pdp.getnextMeetupId(), date + " " + time, invited);
+        		name, description, pdp.getnextMeetupId(), date + ", " + time, invited);
         pdp.addMeetup(m);
+        Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
+        FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
+		ft1.remove(poi);
+		ft1.commit();
+		getActionBar().setSelectedNavigationItem(2);
+	}
+	
+	public void cancelPOI(View v) {
+        Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
+        FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
+		ft1.remove(poi);
+		ft1.commit();
+		getActionBar().setSelectedNavigationItem(1);
+	}
+	
+	public void cancelMeetup(View v) {
         Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
         FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
 		ft1.remove(poi);
