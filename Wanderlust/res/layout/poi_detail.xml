@@ -15,7 +15,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/meet_up_title"
+        android:id="@+id/poi_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -69,7 +69,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/who_is_going_info"
+        android:id="@+id/story_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
