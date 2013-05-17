@@ -84,17 +84,18 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 	public boolean onMarkerClick(Marker marker) {
 		LinearLayout topBar = (LinearLayout) getActivity().findViewById(R.id.topBar);
 		topBar.setVisibility(View.VISIBLE);
+		topBar.bringToFront();
 		String title = marker.getTitle();
 		if (title.charAt(0) == 'm') { // marker represents a marker
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
 			meetupButton.setVisibility(View.GONE);
-			Meetup m = MainActivity.getPlaceDataProvider().getMeetup(title.charAt(1));
+			Meetup m = MainActivity.getPlaceDataProvider().getMeetup(Character.getNumericValue(title.charAt(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(m.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(m.getTitle());
 		} else { // marker represents a poi
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
 			meetupButton.setVisibility(View.VISIBLE);
-			POI p = MainActivity.getPlaceDataProvider().getPOI(title.charAt(1));
+			POI p = MainActivity.getPlaceDataProvider().getPOI(Character.getNumericValue(title.charAt(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(p.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(p.getTitle());
 		}
