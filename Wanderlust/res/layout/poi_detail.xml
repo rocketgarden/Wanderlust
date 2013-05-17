@@ -36,40 +36,37 @@
         android:textColor="#C6C6C6"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/story_title"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/location_info"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/location"
-        android:layout_marginTop="100dp"
-        android:background="#3D3D3D"
-        android:text="Story"
-        android:textColor="#C6C6C6"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/picture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/story_title"
-        android:layout_marginTop="100dp"
-        android:background="#3D3D3D"
-        android:text="@string/picture"
-        android:textColor="#C6C6C6"
-        android:textSize="18sp" />
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/picture"
+        android:contentDescription="poi_pic"
+        android:src="@drawable/diner" />
 
     <TextView
         android:id="@+id/location_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/w0"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/location"
-        android:layout_marginTop="28dp"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
         android:textColor="#171717" />
+
+    <TextView
+        android:id="@+id/story_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/location_info"
+        android:layout_marginTop="19dp"
+        android:background="#3D3D3D"
+        android:text="Story"
+        android:textColor="#C6C6C6"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/who_is_going_info"
@@ -77,18 +74,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/story_title"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="28dp"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
         android:textColor="#171717" />
 
-    <ImageView
-        android:id="@+id/location_info"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/picture"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/picture"
-        android:src="@drawable/ic_launcher"
-        android:contentDescription="poi_pic" />
+        android:layout_below="@+id/who_is_going_info"
+        android:layout_marginTop="118dp"
+        android:background="#3D3D3D"
+        android:text="@string/picture"
+        android:textColor="#C6C6C6"
+        android:textSize="18sp" />
 
 </RelativeLayout>

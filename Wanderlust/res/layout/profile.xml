@@ -33,7 +33,7 @@
         android:layout_toRightOf="@+id/poi"
         android:background="#3D3D3D"
         android:textColor="#C6C6C6"
-        android:text="3 Meetup's" />
+        android:text="3 Meetups" />
     
     <Button
         android:id="@+id/friends"
@@ -78,7 +78,7 @@
         android:layout_marginTop="110dp"
         android:ems="10"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Your Point&apos;s of Interest:" />
+        android:text="Your Points of Interest:" />
     
      <TextView
         android:id="@+id/Yourmeetups"
@@ -91,7 +91,7 @@
         android:layout_marginTop="310dp"
         android:ems="10"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Your Meetup's:" />
+        android:text="Your Meetups:" />
 
      <ListView
          android:id="@+id/listedmeetups"
