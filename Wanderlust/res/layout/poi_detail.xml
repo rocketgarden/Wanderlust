@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E8E8"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/meet_up_title"
+        android:layout_centerHorizontal="true"
+        android:text="Create Meet Up"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/meet_up_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Place Holder Title"
+        android:textColor="#171717"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edit"
+        android:layout_marginTop="10dp"
+        android:background="#3D3D3D"
+        android:text="@string/location"
+        android:textColor="#C6C6C6"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/story_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/location"
+        android:layout_marginTop="100dp"
+        android:background="#3D3D3D"
+        android:text="Story"
+        android:textColor="#C6C6C6"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/story_title"
+        android:layout_marginTop="100dp"
+        android:background="#3D3D3D"
+        android:text="@string/picture"
+        android:textColor="#C6C6C6"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/location_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/w0"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/location"
+        android:layout_marginTop="28dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
+        android:textColor="#171717" />
+
+    <TextView
+        android:id="@+id/who_is_going_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/story_title"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="28dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
+        android:textColor="#171717" />
+
+    <ImageView
+        android:id="@+id/location_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/picture"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="poi_pic" />
+
+</RelativeLayout>

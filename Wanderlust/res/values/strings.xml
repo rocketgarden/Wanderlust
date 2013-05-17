@@ -28,5 +28,19 @@
     <string name="new_meetup_radio_text">All day event</string>
     <string name="new_meetup_invite_text">Invite (username or email addresses, separated by commas)</string>
     <string name="new_meetup_create_button">Create New MeetUp</string>
+    
+    
+    <string name="app_name">Wanderlust</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="meetup_name">Denny\'s</string>
+    <string name="create_meetup">Create Meet Up</string>
+    <string name="more_information">More Information</string>
+    <string name="meet_up_details">Meet up details</string>
+    <string name="date_and_time">Date and time</string>
+    <string name="location">Location</string>
+    <string name="picture">Picture</string>
+    <string name="edit">Edit</string>
+    <string name="invite_friends">Invite Friends</string>
 
 </resources>
