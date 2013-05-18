@@ -53,9 +53,9 @@
 		    android:layout_marginTop="5dp" 
 		    android:layout_width="127dp"
 		    android:layout_height="35dp"
-		    android:background="#BFE9FF"
+		    android:background="@drawable/hide"
 		    android:onClick="closeDetails"
-		    android:text="/\\" />
+		    />
     
 
 </LinearLayout>
