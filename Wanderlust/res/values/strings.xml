@@ -42,5 +42,9 @@
     <string name="picture">Picture</string>
     <string name="edit">Edit</string>
     <string name="invite_friends">Invite Friends</string>
+    <string name="hint_search_pois">Search for Points of Interest</string>
+    <string name="hint_search_meetups">Search for MeetUps</string>
+    
+    
 
 </resources>

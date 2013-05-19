@@ -30,7 +30,7 @@
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/search"
         android:ems="10"
-        android:text="Search for Point&apos;s of Interest" >
+        android:hint="@string/hint_search_pois" >
     </AutoCompleteTextView>
 
 </RelativeLayout>

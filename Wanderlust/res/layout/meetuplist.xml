@@ -20,7 +20,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:ems="10"
-        android:text="Search for Meetups" >
+        android:hint="@string/hint_search_meetups" >
 
         <requestFocus />
     </AutoCompleteTextView>
