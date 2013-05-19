@@ -5,21 +5,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uw.cse441.wanderlust.utility.POI;
+import uw.cse441.wanderlust.utility.Meetup;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class POI_Fragment extends ListFragment {
-	public static final String TAG = "POI_Fragment";
+public class Meetup_List_Fragment extends ListFragment {
+	public static final String TAG = "Meetup_Fragment";
 	private SimpleAdapter mAdapter;
 	private SearchView.OnQueryTextListener mSearchListener;
 	private SearchView mSearchView;
@@ -31,14 +31,14 @@ public class POI_Fragment extends ListFragment {
 
 		// Fill in list view
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-		for (POI p : ((MainActivity) getActivity()).getPlaceDataProvider().getPOIList()) {
+		for (Meetup m : ((MainActivity) getActivity()).getPlaceDataProvider().getMeetupList()) {
 			Map<String, String> datum = new HashMap<String, String>(2);
-			datum.put("title", p.getTitle());
-			datum.put("address", p.getAddress());
+			datum.put("title", m.getTitle());
+			datum.put("date", m.getDate());
 			data.add(datum);
 		}
 		mAdapter = new SimpleAdapter(getActivity(), data, android.R.layout.simple_list_item_2,
-				new String[] { "title", "address" }, new int[] { android.R.id.text1,
+				new String[] { "title", "date" }, new int[] { android.R.id.text1,
 						android.R.id.text2 });
 		setListAdapter(mAdapter);
 	}
@@ -66,8 +66,6 @@ public class POI_Fragment extends ListFragment {
 				return true;
 			}
 		};
-
-		mSearchView.setOnQueryTextListener(mSearchListener);
 	}
 
 	@Override

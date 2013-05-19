@@ -31,6 +31,9 @@ import android.widget.LinearLayout;
  * 
  */
 public class MainActivity extends Activity {
+	//constants for argument/intents
+	public static final String REQUESTED_MEETUP_KEY = "REQUESTED_MEETUP";
+	public static final String REQUESTED_POI_KEY = "REQUESTED_POI";
 
 	static final String TAG = "MainActivity";
 	private PlaceDataProvider pdp;
@@ -58,16 +61,16 @@ public class MainActivity extends Activity {
 				.newTab()
 				.setText(R.string.title_section_poi)
 				.setTabListener(
-						new TabListener<POI_Fragment>(this, "poi",
-								POI_Fragment.class));
+						new TabListener<POI_List_Fragment>(this, "poi",
+								POI_List_Fragment.class));
 		actionBar.addTab(tab);
 		// MeetUp Page
 		tab = actionBar
 				.newTab()
 				.setText(R.string.title_section_meetup)
 				.setTabListener(
-						new TabListener<Meetup_Fragment>(this, "meetup",
-								Meetup_Fragment.class));
+						new TabListener<Meetup_List_Fragment>(this, "meetup",
+								Meetup_List_Fragment.class));
 		actionBar.addTab(tab);
 		// Profile Page
 		tab = actionBar
@@ -159,7 +162,7 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.action_addpoi:
 			Fragment mFragment = Fragment.instantiate(this,
-					NewPoi_Fragment.class.getName());
+					New_POI_Fragment.class.getName());
 			FragmentTransaction ft = getFragmentManager().beginTransaction();
 			;
 			ft.add(android.R.id.content, mFragment, "newpoi");
@@ -167,7 +170,7 @@ public class MainActivity extends Activity {
 			return true;
 		case R.id.action_addmeetup:
 			Fragment mFragment1 = Fragment.instantiate(this,
-					NewMeetup_Fragment.class.getName());
+					New_Meetup_Fragment.class.getName());
 			FragmentTransaction ft1 = getFragmentManager().beginTransaction();
 			;
 			ft1.add(android.R.id.content, mFragment1, "newmeetup");

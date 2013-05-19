@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-public class NewPoi_Fragment extends Fragment {
+public class New_POI_Fragment extends Fragment {
 	static final String TAG = "Meetup_Fragment";
 
 	@Override
