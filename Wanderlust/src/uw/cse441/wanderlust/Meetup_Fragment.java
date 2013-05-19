@@ -8,45 +8,76 @@ import java.util.Map;
 import uw.cse441.wanderlust.utility.Meetup;
 import android.app.ListFragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 
 public class Meetup_Fragment extends ListFragment {
-	static final String TAG = "Meetup_Fragment";
+	public static final String TAG = "Meetup_Fragment";
+	private SimpleAdapter mAdapter;
+	private SearchView.OnQueryTextListener mSearchListener;
+	private SearchView mSearchView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	}
-
-	public View XonCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.meetuplist, container, false);
-		return view;
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
+		setHasOptionsMenu(true); // add search provider
 
 		// Fill in list view
-		ListView lv = getListView();
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-		for (Meetup m : ((MainActivity) getActivity()).getPlaceDataProvider()
-				.getMeetupList()) {
+		for (Meetup m : ((MainActivity) getActivity()).getPlaceDataProvider().getMeetupList()) {
 			Map<String, String> datum = new HashMap<String, String>(2);
 			datum.put("title", m.getTitle());
 			datum.put("date", m.getDate());
 			data.add(datum);
 		}
-		SimpleAdapter adapter = new SimpleAdapter(getActivity(), data,
-				android.R.layout.simple_list_item_2, new String[] { "title",
-						"date" }, new int[] { android.R.id.text1,
+		mAdapter = new SimpleAdapter(getActivity(), data, android.R.layout.simple_list_item_2,
+				new String[] { "title", "date" }, new int[] { android.R.id.text1,
 						android.R.id.text2 });
-		lv.setAdapter(adapter);
-		lv.setTextFilterEnabled(true);
+		setListAdapter(mAdapter);
 	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.search, menu);
+
+		mSearchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+		mSearchListener = new SearchView.OnQueryTextListener() {
+
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+//				if (mAdapter == null)// for some reason this is a problem
+//					return true;
+				mAdapter.getFilter().filter(query);
+				return true;
+			}
+
+			@Override
+			public boolean onQueryTextChange(String newText) {
+//				if (mAdapter == null)// for some reason this is a problem
+//					return true;
+				mAdapter.getFilter().filter(newText);
+				return true;
+			}
+		};
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		mSearchView.setOnQueryTextListener(mSearchListener);
+	}
+	
+	public void onPause()	{
+		super.onPause();
+		mSearchView.setOnQueryTextListener(null);
+	}
+	
+	public void onStop() {
+		super.onStop();
+		getActivity().invalidateOptionsMenu();
+	}
+
 }

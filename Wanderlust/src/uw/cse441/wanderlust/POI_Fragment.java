@@ -8,51 +8,78 @@ import java.util.Map;
 import uw.cse441.wanderlust.utility.POI;
 import android.app.ListFragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 
 public class POI_Fragment extends ListFragment {
-	/*
-	 * Notes on lifecycle: onAttach: Ensure that parent activity implements any
-	 * required listeners (if any) onCreateView: draw and return a view for the
-	 * parent activity
-	 */
-	static final String TAG = "POI_Fragment";
+	public static final String TAG = "POI_Fragment";
+	private SimpleAdapter mAdapter;
+	private SearchView.OnQueryTextListener mSearchListener;
+	private SearchView mSearchView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	}
-
-	public View XonCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.poilist, container, false);
-		return view;
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
+		setHasOptionsMenu(true); // add search provider
 
 		// Fill in list view
-		ListView lv = getListView();
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-		for (POI p : ((MainActivity) getActivity()).getPlaceDataProvider()
-				.getPOIList()) {
+		for (POI p : ((MainActivity) getActivity()).getPlaceDataProvider().getPOIList()) {
 			Map<String, String> datum = new HashMap<String, String>(2);
 			datum.put("title", p.getTitle());
 			datum.put("address", p.getAddress());
 			data.add(datum);
 		}
-		SimpleAdapter adapter = new SimpleAdapter(getActivity(), data,
-				android.R.layout.simple_list_item_2, new String[] { "title",
-						"address" }, new int[] { android.R.id.text1,
+		mAdapter = new SimpleAdapter(getActivity(), data, android.R.layout.simple_list_item_2,
+				new String[] { "title", "address" }, new int[] { android.R.id.text1,
 						android.R.id.text2 });
-		lv.setAdapter(adapter);
-		lv.setTextFilterEnabled(true);
+		setListAdapter(mAdapter);
 	}
 
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.search, menu);
+
+		mSearchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+		mSearchListener = new SearchView.OnQueryTextListener() {
+
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+//				if (mAdapter == null)// for some reason this is a problem
+//					return true;
+				mAdapter.getFilter().filter(query);
+				return true;
+			}
+
+			@Override
+			public boolean onQueryTextChange(String newText) {
+//				if (mAdapter == null)// for some reason this is a problem
+//					return true;
+				mAdapter.getFilter().filter(newText);
+				return true;
+			}
+		};
+
+		mSearchView.setOnQueryTextListener(mSearchListener);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		mSearchView.setOnQueryTextListener(mSearchListener);
+	}
+	
+	public void onPause()	{
+		super.onPause();
+		mSearchView.setOnQueryTextListener(null);
+	}
+	
+	public void onStop() {
+		super.onStop();
+		getActivity().invalidateOptionsMenu();
+	}
+	
 }

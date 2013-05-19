@@ -2,19 +2,20 @@
 
     <item
         android:id="@+id/action_addmeetup"
+        android:icon="@drawable/addgroup"
         android:showAsAction="ifRoom|withText"
-        android:title="@string/action_addmeetup" android:icon="@drawable/addgroup">
+        android:title="@string/action_addmeetup">
     </item>
     <item
         android:id="@+id/action_addpoi"
+        android:icon="@drawable/place"
         android:showAsAction="ifRoom|withText"
-        android:title="@string/action_addpoi" android:icon="@drawable/place">
+        android:title="@string/action_addpoi">
     </item>
-    
     <item
-        android:id="@+id/action_search"
-        android:showAsAction="ifRoom"
-        android:title="@string/action_search" android:icon="@drawable/search">
-    </item><item android:id="@+id/action_settings" android:orderInCategory="100" android:showAsAction="never" android:title="@string/action_settings" />
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
 
 </menu>
