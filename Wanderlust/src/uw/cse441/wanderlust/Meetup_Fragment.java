@@ -10,9 +10,13 @@ import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class Meetup_Fragment extends ListFragment {
 	public static final String TAG = "Meetup_Fragment";
@@ -48,16 +52,16 @@ public class Meetup_Fragment extends ListFragment {
 
 			@Override
 			public boolean onQueryTextSubmit(String query) {
-//				if (mAdapter == null)// for some reason this is a problem
-//					return true;
+				// if (mAdapter == null)// for some reason this is a problem
+				// return true;
 				mAdapter.getFilter().filter(query);
 				return true;
 			}
 
 			@Override
 			public boolean onQueryTextChange(String newText) {
-//				if (mAdapter == null)// for some reason this is a problem
-//					return true;
+				// if (mAdapter == null)// for some reason this is a problem
+				// return true;
 				mAdapter.getFilter().filter(newText);
 				return true;
 			}
@@ -65,18 +69,24 @@ public class Meetup_Fragment extends ListFragment {
 	}
 
 	@Override
-	public void onResume() {
-		super.onResume();
+	public void onStart() {
+		super.onStart();
 		mSearchView.setOnQueryTextListener(mSearchListener);
+
+		getListView().setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
+				Toast.makeText(getActivity(), pos + " Clicked", Toast.LENGTH_SHORT).show();
+			}
+
+		});
+
 	}
-	
-	public void onPause()	{
-		super.onPause();
-		mSearchView.setOnQueryTextListener(null);
-	}
-	
+
 	public void onStop() {
 		super.onStop();
+		mSearchView.setOnQueryTextListener(null);
 		getActivity().invalidateOptionsMenu();
 	}
 
