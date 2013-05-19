@@ -16,7 +16,6 @@ import android.widget.SimpleAdapter;
 
 public class Meetup_Fragment extends ListFragment {
 	static final String TAG = "Meetup_Fragment";
-	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,8 @@ public class Meetup_Fragment extends ListFragment {
 		// Fill in list view
 		ListView lv = getListView();
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-		for (Meetup m : ((MainActivity) getActivity()).getPlaceDataProvider().getMeetupList()) {
+		for (Meetup m : ((MainActivity) getActivity()).getPlaceDataProvider()
+				.getMeetupList()) {
 			Map<String, String> datum = new HashMap<String, String>(2);
 			datum.put("title", m.getTitle());
 			datum.put("date", m.getDate());

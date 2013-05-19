@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		pdp = new PlaceDataProvider();
 		loadDatabase();
-		
+
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setDisplayShowTitleEnabled(false);
@@ -77,61 +77,65 @@ public class MainActivity extends Activity {
 								Profile_Fragment.class));
 		actionBar.addTab(tab);
 	}
-	
-	public PlaceDataProvider getPlaceDataProvider(){
+
+	public PlaceDataProvider getPlaceDataProvider() {
 		return pdp;
-		
+
 	}
 
-	public void loadDatabase(){
-        // create pois
-		//N 51st St & Meridian Ave N Seattle
-		POI p1 = new POI("5020 Meridian Avenue North, Seattle, WA", 
-        		addressToLocation("5020 Meridian Avenue North, Seattle, WA"), 
-        		"Orange Statue", null, pdp.getNextPoiId(), null);
-        pdp.addPOI(p1);
-        
-        POI p2 = new POI("N 57th Street, Seattle, WA", 
-        		addressToLocation("N 57th Street, Seattle, WA"), 
-        		"Historic Landmark", null, pdp.getNextPoiId(), null);
-        pdp.addPOI(p2);
-        
-        POI p3 = new POI("5413 Meridian Avenue North, Seattle, WA", 
-        		addressToLocation("5413 Meridian Avenue North, Seattle, WA"), 
-        		"Diner", null, pdp.getNextPoiId(), null);
-        pdp.addPOI(p3);
-        
-        // create meetups
-        Meetup m1 = new Meetup("3875 N 51st St Seattle, Wa", 
-        		addressToLocation("3875 N 51st St Seattle"), 
-        		"Cool Park", null, pdp.getnextMeetupId(), "5/20/13, 7:00pm-9:00pm", "You, Johnny007, T63");
-        pdp.addMeetup(m1);
-        
-        Meetup m2 = new Meetup("5050 8th Avenue Northeast, Seattle, WA", 
-        		addressToLocation("5050 8th Avenue Northeast, Seattle, WA"), 
-        		"Boat Rentals", null, pdp.getnextMeetupId(), "5/25/13, 1:00pm-3:00pm", "You, Dude2341, Patrick123");
-        pdp.addMeetup(m2);
+	public void loadDatabase() {
+		// create pois
+		// N 51st St & Meridian Ave N Seattle
+		POI p1 = new POI("5020 Meridian Avenue North, Seattle, WA",
+				addressToLocation("5020 Meridian Avenue North, Seattle, WA"),
+				"Orange Statue", null, pdp.getNextPoiId(), null);
+		pdp.addPOI(p1);
+
+		POI p2 = new POI("N 57th Street, Seattle, WA",
+				addressToLocation("N 57th Street, Seattle, WA"),
+				"Historic Landmark", null, pdp.getNextPoiId(), null);
+		pdp.addPOI(p2);
+
+		POI p3 = new POI("5413 Meridian Avenue North, Seattle, WA",
+				addressToLocation("5413 Meridian Avenue North, Seattle, WA"),
+				"Diner", null, pdp.getNextPoiId(), null);
+		pdp.addPOI(p3);
+
+		// create meetups
+		Meetup m1 = new Meetup("3875 N 51st St Seattle, Wa",
+				addressToLocation("3875 N 51st St Seattle"), "Cool Park", null,
+				pdp.getnextMeetupId(), "5/20/13, 7:00pm-9:00pm",
+				"You, Johnny007, T63");
+		pdp.addMeetup(m1);
+
+		Meetup m2 = new Meetup("5050 8th Avenue Northeast, Seattle, WA",
+				addressToLocation("5050 8th Avenue Northeast, Seattle, WA"),
+				"Boat Rentals", null, pdp.getnextMeetupId(),
+				"5/25/13, 1:00pm-3:00pm", "You, Dude2341, Patrick123");
+		pdp.addMeetup(m2);
 	}
-	
-	private Pair<Float, Float> addressToLocation(String streetAddress){
+
+	private Pair<Float, Float> addressToLocation(String streetAddress) {
 		Geocoder coder = new Geocoder(this);
-	    List<Address> address;
-	    Pair<Float,Float> latLong = null;
-        try {
-			address = coder.getFromLocationName(streetAddress,5);
-		    if (address != null && address.size() != 0) {
-		        Address location = address.get(0);
-		        latLong = new Pair<Float, Float>((float)location.getLatitude(), (float)location.getLongitude());
-		    }
-        } catch (IOException e) {
+		List<Address> address;
+		Pair<Float, Float> latLong = null;
+		try {
+			address = coder.getFromLocationName(streetAddress, 5);
+			if (address != null && address.size() != 0) {
+				Address location = address.get(0);
+				latLong = new Pair<Float, Float>(
+						(float) location.getLatitude(),
+						(float) location.getLongitude());
+			}
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        if (latLong == null){
-        	latLong = new Pair<Float, Float>((float)0, (float)0);
-        }
+		if (latLong == null) {
+			latLong = new Pair<Float, Float>((float) 0, (float) 0);
+		}
 		return latLong;
 	}
-	
+
 	// closes popup on map page
 	public void closeDetails(View v) {
 		LinearLayout topBar = (LinearLayout) findViewById(R.id.topBar);
@@ -139,81 +143,96 @@ public class MainActivity extends Activity {
 		Button b = (Button) findViewById(R.id.meetUpButton);
 		b.setVisibility(View.VISIBLE);
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
-	    switch (item.getItemId()) {
-	        case R.id.action_addpoi:
-				Fragment mFragment = Fragment.instantiate(this, NewPoi_Fragment.class.getName());
-				FragmentTransaction ft = getFragmentManager().beginTransaction();;
-				ft.add(android.R.id.content, mFragment, "newpoi");
-				ft.commit();
-	            return true;
-	        case R.id.action_addmeetup:
-				Fragment mFragment1 = Fragment.instantiate(this, NewMeetup_Fragment.class.getName());
-				FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
-				ft1.add(android.R.id.content, mFragment1, "newmeetup");
-				ft1.commit();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.action_addpoi:
+			Fragment mFragment = Fragment.instantiate(this,
+					NewPoi_Fragment.class.getName());
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			;
+			ft.add(android.R.id.content, mFragment, "newpoi");
+			ft.commit();
+			return true;
+		case R.id.action_addmeetup:
+			Fragment mFragment1 = Fragment.instantiate(this,
+					NewMeetup_Fragment.class.getName());
+			FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+			;
+			ft1.add(android.R.id.content, mFragment1, "newmeetup");
+			ft1.commit();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
-	
+
 	public void addPOI(View v) {
-		String name = ((EditText)findViewById(R.id.name_field)).getText().toString();
-		String address = ((EditText)findViewById(R.id.address_field)).getText().toString();
-		String description = ((EditText)findViewById(R.id.description_field)).getText().toString();
-		
-		POI p = new POI(address, 
-        		addressToLocation(address), 
-        		name, description, pdp.getNextPoiId(), null);
-        pdp.addPOI(p);
-        Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
-        FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
+		String name = ((EditText) findViewById(R.id.name_field)).getText()
+				.toString();
+		String address = ((EditText) findViewById(R.id.address_field))
+				.getText().toString();
+		String description = ((EditText) findViewById(R.id.description_field))
+				.getText().toString();
+
+		POI p = new POI(address, addressToLocation(address), name, description,
+				pdp.getNextPoiId(), null);
+		pdp.addPOI(p);
+		Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
+		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+		;
 		ft1.remove(poi);
 		ft1.commit();
 		getActionBar().setSelectedNavigationItem(1);
 	}
-	
+
 	public void addMeetup(View v) {
-		String name = ((EditText)findViewById(R.id.poi_field)).getText().toString();
-		String address = ((EditText)findViewById(R.id.address_layout)).getText().toString();
-		String description = ((EditText)findViewById(R.id.descr_input)).getText().toString();
-		String invited = ((EditText)findViewById(R.id.invite_input_field)).getText().toString();
-		String date = ((EditText)findViewById(R.id.date_field2)).getText().toString();
-		String time = ((EditText)findViewById(R.id.time_input)).getText().toString();
-		
-		Meetup m = new Meetup(address, 
-        		addressToLocation(address), 
-        		name, description, pdp.getnextMeetupId(), date + ", " + time, invited);
-        pdp.addMeetup(m);
-        Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
-        FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
+		String name = ((EditText) findViewById(R.id.poi_field)).getText()
+				.toString();
+		String address = ((EditText) findViewById(R.id.address_layout))
+				.getText().toString();
+		String description = ((EditText) findViewById(R.id.descr_input))
+				.getText().toString();
+		String invited = ((EditText) findViewById(R.id.invite_input_field))
+				.getText().toString();
+		String date = ((EditText) findViewById(R.id.date_field2)).getText()
+				.toString();
+		String time = ((EditText) findViewById(R.id.time_input)).getText()
+				.toString();
+
+		Meetup m = new Meetup(address, addressToLocation(address), name,
+				description, pdp.getnextMeetupId(), date + ", " + time, invited);
+		pdp.addMeetup(m);
+		Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
+		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+		;
 		ft1.remove(poi);
 		ft1.commit();
 		getActionBar().setSelectedNavigationItem(2);
 	}
-	
+
 	public void cancelPOI(View v) {
-        Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
-        FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
+		Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
+		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+		;
 		ft1.remove(poi);
 		ft1.commit();
 		getActionBar().setSelectedNavigationItem(1);
 	}
-	
+
 	public void cancelMeetup(View v) {
-        Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
-        FragmentTransaction ft1 = getFragmentManager().beginTransaction();;
+		Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
+		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+		;
 		ft1.remove(poi);
 		ft1.commit();
 		getActionBar().setSelectedNavigationItem(2);

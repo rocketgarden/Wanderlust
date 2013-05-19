@@ -16,10 +16,9 @@ import android.widget.SimpleAdapter;
 
 public class POI_Fragment extends ListFragment {
 	/*
-	 * Notes on lifecycle:
-	 * onAttach: Ensure that parent activity implements any required listeners (if any)
-	 * onCreateView: draw and return a view for the parent activity
-	 * 
+	 * Notes on lifecycle: onAttach: Ensure that parent activity implements any
+	 * required listeners (if any) onCreateView: draw and return a view for the
+	 * parent activity
 	 */
 	static final String TAG = "POI_Fragment";
 
@@ -27,35 +26,34 @@ public class POI_Fragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
-	
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.poilist, container, false);
 		return view;
 	}
-	
+
 	@Override
 	public void onResume() {
 		super.onResume();
-    
-	    // Fill in list view
+
+		// Fill in list view
 		ListView lv = getListView();
-	    List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-	    for (POI p: ((MainActivity) getActivity()).getPlaceDataProvider().getPOIList()) {
-	        Map<String, String> datum = new HashMap<String, String>(2);
-	        datum.put("title", p.getTitle());
-	        datum.put("address", p.getAddress());
-	        data.add(datum);
-	    }
-	    SimpleAdapter adapter = new SimpleAdapter(getActivity(), data,
-	                                              android.R.layout.simple_list_item_2,
-	                                              new String[] {"title", "address"},
-	                                              new int[] {android.R.id.text1,
-	                                                         android.R.id.text2});
-	    lv.setAdapter(adapter);
-	    lv.setTextFilterEnabled(true);
+		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+		for (POI p : ((MainActivity) getActivity()).getPlaceDataProvider()
+				.getPOIList()) {
+			Map<String, String> datum = new HashMap<String, String>(2);
+			datum.put("title", p.getTitle());
+			datum.put("address", p.getAddress());
+			data.add(datum);
+		}
+		SimpleAdapter adapter = new SimpleAdapter(getActivity(), data,
+				android.R.layout.simple_list_item_2, new String[] { "title",
+						"address" }, new int[] { android.R.id.text1,
+						android.R.id.text2 });
+		lv.setAdapter(adapter);
+		lv.setTextFilterEnabled(true);
 	}
-	
-	
 
 }
