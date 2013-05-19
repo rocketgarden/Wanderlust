@@ -14,6 +14,7 @@ import android.app.FragmentTransaction;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -129,6 +130,7 @@ public class MainActivity extends Activity {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+			Log.e(TAG, "Could not parse address!");
 		}
 		if (latLong == null) {
 			latLong = new Pair<Float, Float>((float) 0, (float) 0);

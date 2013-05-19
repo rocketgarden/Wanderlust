@@ -30,24 +30,15 @@ public class PoiDetail_Fragment extends Fragment {
 		super.onResume();
 		POI p = ((MainActivity) getActivity()).getPlaceDataProvider().getPOI(id);
 		
-		if (p == null) {
-		    TextView title = (TextView) getView().findViewById(R.id.poi_title);
-		    title.setText("Title");
-		    
-		    TextView location = (TextView) getView().findViewById(R.id.location_info);
-		    location.setText("Address Text...");
-		    
-		    TextView story = (TextView) getView().findViewById(R.id.story_info);
-		    story.setText("Extended Description...");
-		} else {
+		if (p != null) {
 		    TextView title = (TextView) getView().findViewById(R.id.poi_title);
 		    title.setText(p.getTitle());
 		    
-		    TextView location = (TextView) getView().findViewById(R.id.location_info);
+		    TextView location = (TextView) getView().findViewById(R.id.text_address);
 		    location.setText(p.getAddress());
 		    
-		    TextView story = (TextView) getView().findViewById(R.id.story_info);
-		    story.setText(p.getDescription());
+		    TextView desc = (TextView) getView().findViewById(R.id.text_desc);
+		    desc.setText(p.getDescription());
 		}
 	}
 

@@ -30,30 +30,18 @@ public class MeetupDetail_Fragment extends Fragment {
 		super.onResume();
 		Meetup m = ((MainActivity) getActivity()).getPlaceDataProvider().getMeetup(id);
 		
-		if (m == null) {
-		    TextView title = (TextView) getView().findViewById(R.id.meet_up_title);
-		    title.setText("Title");
-		    
-		    TextView invited = (TextView) getView().findViewById(R.id.who_is_going_info);
-		    invited.setText("Invited guests...");
-		    
-		    TextView location = (TextView) getView().findViewById(R.id.location_info);
-		    location.setText("Address...");
-		    
-		    TextView story = (TextView) getView().findViewById(R.id.date_and_time_info);
-		    story.setText("Date and Time...");
-		} else {
-		    TextView title = (TextView) getView().findViewById(R.id.meet_up_title);
+		if (m != null) {
+		    TextView title = (TextView) getView().findViewById(R.id.title_meetup);
 		    title.setText(m.getTitle());
 		    
-		    TextView invited = (TextView) getView().findViewById(R.id.who_is_going_info);
+		    TextView invited = (TextView) getView().findViewById(R.id.text_attending);
 		    invited.setText(m.getInvited());
 		    
-		    TextView location = (TextView) getView().findViewById(R.id.location_info);
+		    TextView location = (TextView) getView().findViewById(R.id.text_address);
 		    location.setText(m.getAddress());
 		    
-		    TextView story = (TextView) getView().findViewById(R.id.date_and_time_info);
-		    story.setText(m.getDate());
+		    TextView desc = (TextView) getView().findViewById(R.id.text_desc);
+		    desc.setText(m.getDate());
 		}
 	}
 

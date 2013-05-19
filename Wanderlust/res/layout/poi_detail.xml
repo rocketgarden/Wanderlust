@@ -1,92 +1,69 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8E8E8"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
-
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/meet_up_title"
-        android:layout_centerHorizontal="true"
-        android:text="Create Meet Up"
-        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/poi_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Place Holder Title"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="POI Title"
         android:textColor="#171717"
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/location"
+        android:id="@+id/title_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/edit"
         android:layout_marginTop="10dp"
         android:background="#3D3D3D"
         android:text="@string/location"
         android:textColor="#C6C6C6"
         android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/location_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/picture"
-        android:contentDescription="poi_pic"
-        android:src="@drawable/diner" />
-
     <TextView
-        android:id="@+id/location_info"
-        android:layout_width="wrap_content"
+        android:id="@+id/text_address"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/location"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
+        android:text="Location Info Text"
         android:textColor="#171717" />
 
     <TextView
-        android:id="@+id/story_title"
+        android:id="@+id/title_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/location_info"
         android:layout_marginTop="19dp"
         android:background="#3D3D3D"
-        android:text="Story"
+        android:text="Description"
         android:textColor="#C6C6C6"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/story_info"
-        android:layout_width="wrap_content"
+        android:id="@+id/text_desc"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/story_title"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
+        android:text="Description and details"
         android:textColor="#171717" />
 
     <TextView
-        android:id="@+id/picture"
+        android:id="@+id/title_picture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/who_is_going_info"
-        android:layout_marginTop="118dp"
         android:background="#3D3D3D"
         android:text="@string/picture"
         android:textColor="#C6C6C6"
         android:textSize="18sp" />
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/picture_poi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="Picture of POI"
+        android:src="@drawable/diner" />
+
+</LinearLayout>

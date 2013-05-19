@@ -1,83 +1,58 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E8E8E8"
-    android:gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/meet_up_title"
-        android:text="Edit"
-        android:textSize="20sp" />
-
     <TextView
-        android:id="@+id/meet_up_title"
+        android:id="@+id/title_meetup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:text="@string/meet_up_details"
         android:textColor="#171717"
         android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/location"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/button_invite"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Invite Friends" />
+
+        <Button
+            android:id="@+id/button_edit_meetup"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+   <TextView
+        android:id="@+id/title_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/edit"
-        android:layout_marginTop="10dp"
-        android:text="@string/location"
+        android:layout_marginTop="20dp"
         android:background="#3D3D3D"
+        android:text="@string/location"
         android:textColor="#C6C6C6"
         android:textSize="20sp" />
 
-    <ImageView
-        android:id="@+id/location_info"
+    <TextView
+        android:id="@+id/text_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/picture"
-        android:contentDescription="meetup_pic"
-        android:src="@drawable/park2" />
-
-    <TextView
-        android:id="@+id/location_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/location"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
+        android:text="Location Info Text"
         android:textColor="#171717" />
 
     <TextView
-        android:id="@+id/who_is_going_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/who_is_going"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
-        android:textColor="#171717" />
-
-    <TextView
-        android:id="@+id/date_and_time_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/date_and_time"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
-        android:textColor="#171717" />
-
-    <TextView
-        android:id="@+id/who_is_going"
+        android:id="@+id/title_attending"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/location_info"
         android:layout_marginTop="20dp"
         android:background="#3D3D3D"
         android:text="Who&apos;s Going"
@@ -85,11 +60,16 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/date_and_time"
+        android:id="@+id/text_attending"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
+        android:textColor="#171717" />
+
+    <TextView
+        android:id="@+id/title_datetime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/who_is_going_info"
         android:layout_marginTop="40dp"
         android:background="#3D3D3D"
         android:text="@string/date_and_time"
@@ -97,23 +77,27 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/picture"
+        android:id="@+id/text_datetime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
+        android:textColor="#171717" />
+
+    <TextView
+        android:id="@+id/title_picture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/date_and_time_info"
         android:layout_marginTop="22dp"
         android:background="#3D3D3D"
         android:text="@string/picture"
         android:textColor="#C6C6C6"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/inviteFriends"
-        android:layout_width="160dp"
+    <ImageView
+        android:id="@+id/picture_meetup"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/meet_up_title"
-        android:text="Invite Friends" />
+        android:contentDescription="meetup_pic"
+        android:src="@drawable/park2" />
 
-</RelativeLayout>
+</LinearLayout>
