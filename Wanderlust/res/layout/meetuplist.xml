@@ -5,7 +5,7 @@
     android:background="#E8E8E8" >
 
     <ListView
-        android:id="@+id/meetuplist"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/meetuptitle"
