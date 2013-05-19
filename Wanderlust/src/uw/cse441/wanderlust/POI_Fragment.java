@@ -27,8 +27,7 @@ public class POI_Fragment extends ListFragment {
 		super.onCreate(savedInstanceState);
 	}
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	public View XonCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.poilist, container, false);
 		return view;

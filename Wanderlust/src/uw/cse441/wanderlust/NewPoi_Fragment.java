@@ -39,7 +39,7 @@ public class NewPoi_Fragment extends Fragment {
 		String address = ((EditText)getView().findViewById(R.id.address_field)).getText().toString();
 		String description = ((EditText)getView().findViewById(R.id.description_field)).getText().toString();
 		
-		PlaceDataProvider pdp = MainActivity.getPlaceDataProvider();
+		PlaceDataProvider pdp = ((MainActivity) getActivity()).getPlaceDataProvider();
 		
 		POI p = new POI(address, 
         		addressToLocation(address), 

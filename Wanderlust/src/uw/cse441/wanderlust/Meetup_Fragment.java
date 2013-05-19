@@ -22,8 +22,7 @@ public class Meetup_Fragment extends ListFragment {
 		super.onCreate(savedInstanceState);
 	}
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	public View XonCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.meetuplist, container, false);
 		return view;

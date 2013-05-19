@@ -28,7 +28,7 @@ public class MeetupDetail_Fragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		Meetup m = MainActivity.getPlaceDataProvider().getMeetup(id);
+		Meetup m = ((MainActivity) getActivity()).getPlaceDataProvider().getMeetup(id);
 		
 		if (m == null) {
 		    TextView title = (TextView) getView().findViewById(R.id.meet_up_title);

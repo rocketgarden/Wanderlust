@@ -28,7 +28,7 @@ public class PoiDetail_Fragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		POI p = MainActivity.getPlaceDataProvider().getPOI(id);
+		POI p = ((MainActivity) getActivity()).getPlaceDataProvider().getPOI(id);
 		
 		if (p == null) {
 		    TextView title = (TextView) getView().findViewById(R.id.poi_title);

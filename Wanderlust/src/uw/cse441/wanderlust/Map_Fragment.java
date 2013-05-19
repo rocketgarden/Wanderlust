@@ -64,14 +64,14 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 				14.0f);
 		getMap().moveCamera(cu);
 		
-		for(POI p : MainActivity.getPlaceDataProvider().getPOIList()){
+		for(POI p : ((MainActivity) getActivity()).getPlaceDataProvider().getPOIList()){
 	        LatLng loc = new LatLng(p.getLocation().first, p.getLocation().second);
 	        getMap().addMarker(new MarkerOptions().position(loc)
 	  	          .title('p' + Integer.toString(p.getId())));
 		}
 		
 		// Add meetups to map
-		for(Meetup m : MainActivity.getPlaceDataProvider().getMeetupList()){
+		for(Meetup m : ((MainActivity) getActivity()).getPlaceDataProvider().getMeetupList()){
 	        LatLng loc = new LatLng(m.getLocation().first, m.getLocation().second);
 	        getMap().addMarker(new MarkerOptions().position(loc)
 	  	          .title('m' + Integer.toString(m.getId())));
@@ -89,13 +89,13 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 		if (title.charAt(0) == 'm') { // marker represents a marker
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
 			meetupButton.setVisibility(View.GONE);
-			Meetup m = MainActivity.getPlaceDataProvider().getMeetup(Integer.parseInt(title.substring(1)));
+			Meetup m = ((MainActivity) getActivity()).getPlaceDataProvider().getMeetup(Integer.parseInt(title.substring(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(m.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(m.getTitle());
 		} else { // marker represents a poi
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
 			meetupButton.setVisibility(View.VISIBLE);
-			POI p = MainActivity.getPlaceDataProvider().getPOI(Integer.parseInt(title.substring(1)));
+			POI p = ((MainActivity) getActivity()).getPlaceDataProvider().getPOI(Integer.parseInt(title.substring(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(p.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(p.getTitle());
 		}
