@@ -8,6 +8,7 @@ public class POI extends Place {
 	private String Title;
 	private String Description;
 	private int Id;
+	@SuppressWarnings("unused")
 	private String Date;
 	
 	public POI(String address, Pair<Float, Float> location, String title, 

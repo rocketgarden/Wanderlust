@@ -3,13 +3,14 @@ package uw.cse441.wanderlust;
 import java.io.IOException;
 import java.util.List;
 
-import uw.cse441.wanderlust.utility.*;
+import uw.cse441.wanderlust.utility.Meetup;
+import uw.cse441.wanderlust.utility.POI;
+import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.app.TabActivity;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;

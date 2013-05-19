@@ -5,24 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uw.cse441.wanderlust.utility.Meetup;
 import uw.cse441.wanderlust.utility.POI;
-
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-
-import android.app.Fragment;
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-public class POI_Fragment extends Fragment {
+public class POI_Fragment extends ListFragment {
 	/*
 	 * Notes on lifecycle:
 	 * onAttach: Ensure that parent activity implements any required listeners (if any)
@@ -47,7 +39,7 @@ public class POI_Fragment extends Fragment {
 		super.onResume();
     
 	    // Fill in list view
-	    ListView lv = (ListView) getView().findViewById(R.id.poilist);
+		ListView lv = getListView();
 	    List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 	    for (POI p: MainActivity.getPlaceDataProvider().getPOIList()) {
 	        Map<String, String> datum = new HashMap<String, String>(2);
