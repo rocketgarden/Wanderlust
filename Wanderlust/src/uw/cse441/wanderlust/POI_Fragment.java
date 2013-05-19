@@ -41,7 +41,7 @@ public class POI_Fragment extends ListFragment {
 	    // Fill in list view
 		ListView lv = getListView();
 	    List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-	    for (POI p: MainActivity.getPlaceDataProvider().getPOIList()) {
+	    for (POI p: ((MainActivity) getActivity()).getPlaceDataProvider().getPOIList()) {
 	        Map<String, String> datum = new HashMap<String, String>(2);
 	        datum.put("title", p.getTitle());
 	        datum.put("address", p.getAddress());

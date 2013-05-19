@@ -32,7 +32,7 @@ import android.widget.LinearLayout;
 public class MainActivity extends Activity {
 
 	static final String TAG = "MainActivity";
-	private static PlaceDataProvider pdp;
+	private PlaceDataProvider pdp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
 		actionBar.addTab(tab);
 	}
 	
-	public static PlaceDataProvider getPlaceDataProvider(){
+	public PlaceDataProvider getPlaceDataProvider(){
 		return pdp;
 		
 	}
