@@ -2,6 +2,7 @@ package uw.cse441.wanderlust;
 
 import uw.cse441.wanderlust.utility.Meetup;
 import uw.cse441.wanderlust.utility.POI;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -83,21 +84,26 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 	@Override
 	public boolean onMarkerClick(Marker marker) {
 		LinearLayout topBar = (LinearLayout) getActivity().findViewById(R.id.topBar);
+		Button closeButton = (Button) getActivity().findViewById(R.id.closeButton);
 		topBar.setVisibility(View.VISIBLE);
 		topBar.bringToFront();
 		String title = marker.getTitle();
-		if (title.charAt(0) == 'm') { // marker represents a marker
+		if (title.charAt(0) == 'm') { // marker represents a maeetup
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
 			meetupButton.setVisibility(View.GONE);
 			Meetup m = ((MainActivity) getActivity()).getPlaceDataProvider().getMeetup(Integer.parseInt(title.substring(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(m.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(m.getTitle());
+			topBar.setBackgroundColor(Color.parseColor("#19FF19"));
+			closeButton.setBackgroundResource(R.drawable.hide2);
 		} else { // marker represents a poi
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
 			meetupButton.setVisibility(View.VISIBLE);
 			POI p = ((MainActivity) getActivity()).getPlaceDataProvider().getPOI(Integer.parseInt(title.substring(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(p.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(p.getTitle());
+			topBar.setBackgroundColor(Color.parseColor("#33B5E5"));
+			closeButton.setBackgroundResource(R.drawable.hide1);
 		}
 
 		return true;

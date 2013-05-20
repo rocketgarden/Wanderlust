@@ -57,7 +57,7 @@
 		    android:layout_marginTop="5dp" 
 		    android:layout_width="127dp"
 		    android:layout_height="35dp"
-		    android:background="@drawable/hide"
+		    android:background="@drawable/hide1"
 		    android:onClick="closeDetails"
 		    />
     
