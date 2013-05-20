@@ -140,11 +140,13 @@ public class MainActivity extends Activity {
 		case R.id.action_addpoi:
 			
 			Intent i = new Intent(this, New_POI.class);
+			i.putExtra(MainActivity.REQUESTED_POI_KEY, -1);
 			startActivity(i);
 			return true;
 		case R.id.action_addmeetup:
 
 			Intent j = new Intent(this, New_Meetup.class);
+			j.putExtra(MainActivity.REQUESTED_MEETUP_KEY, -1);
 			startActivity(j);
 			return true;
 		default:
@@ -264,6 +266,8 @@ public class MainActivity extends Activity {
 			if (mFragment != null) {
 				// Detach the fragment, because another one is being attached
 				ft.detach(mFragment);
+		  		LinearLayout topBar = (LinearLayout) mActivity.findViewById(R.id.topBar);
+		  		topBar.setVisibility(View.GONE);
 			}
 		}
 
