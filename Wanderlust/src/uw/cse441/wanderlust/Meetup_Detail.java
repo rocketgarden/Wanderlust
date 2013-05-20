@@ -1,11 +1,16 @@
 package uw.cse441.wanderlust;
 
+import uw.cse441.wanderlust.utility.Meetup;
+import uw.cse441.wanderlust.utility.POI;
+import uw.cse441.wanderlust.utility.PlaceDataProvider;
+import uw.cse441.wanderlust.utility.SQLPlaceProvider;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
 public class Meetup_Detail extends Activity {
@@ -13,10 +18,14 @@ public class Meetup_Detail extends Activity {
 	private int mID;
 	public static final String TAG = "MeetUp_Detail_Activity";
 
+	private PlaceDataProvider pdp;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.meetup_detail);
+		pdp = new SQLPlaceProvider(this);
+
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
@@ -61,5 +70,38 @@ public class Meetup_Detail extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		Meetup m = pdp.getMeetup(mID);
+		
+		if (m != null) {
+		    TextView title = (TextView) findViewById(R.id.title_meetup);
+		    title.setText(m.getTitle());
+		    
+		    TextView invited = (TextView) findViewById(R.id.text_attending);
+		    invited.setText(m.getInvited());
+		    
+		    TextView location = (TextView) findViewById(R.id.text_address);
+		    location.setText(m.getAddress());
+		    
+		    TextView date = (TextView) findViewById(R.id.text_datetime);
+		    date.setText(m.getDate());
+		}
+	}
+	
+	@Override
+	public void onStop(){
+		super.onStop();
+		pdp.close();
+	}
+	
+	@Override
+	public void onStart(){
+		super.onStart();
+		pdp.open();
+	}
+	
 
 }
