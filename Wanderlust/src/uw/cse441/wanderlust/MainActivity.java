@@ -7,6 +7,7 @@ import uw.cse441.wanderlust.utility.Meetup;
 import uw.cse441.wanderlust.utility.POI;
 import uw.cse441.wanderlust.utility.BasicPlaceProvider;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
+import uw.cse441.wanderlust.utility.SQLPlaceProvider;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -44,7 +45,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		pdp = new BasicPlaceProvider(this);
+		pdp = new SQLPlaceProvider(this);
 
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -76,6 +77,17 @@ public class MainActivity extends Activity {
 				.setTabListener(
 						new TabListener<Profile_Fragment>(this, "profile", Profile_Fragment.class));
 		actionBar.addTab(tab);
+	}
+	
+	@Override
+	public void onStop(){
+		super.onStop();
+		pdp.close();
+	}
+	
+	public void onStart(){
+		super.onStart();
+		pdp.open();
 	}
 
 	public PlaceDataProvider getPlaceDataProvider() {
