@@ -3,72 +3,69 @@ package uw.cse441.wanderlust.utility;
 import android.util.Pair;
 
 public class POI extends Place {
-	private String Address;
-	private Pair<Float, Float> Location;
-	private String Title;
-	private String Description;
-	private int Id;
-	@SuppressWarnings("unused")
-	private String Date;
+	private String mAddress;
+	private Pair<Float, Float> mLocation;
+	private String mTitle;
+	private String mDescription;
+	private int mID;
 	
-	public POI(String address, Pair<Float, Float> location, String title, 
-			   String description, int id, String date){
-		Address = address;
-		Location = location;
-		Title = title;
-		Description = description;
-		Id = id;
-		Date = date;		
+	public POI(String title, String address, String description, 
+			   Pair<Float, Float> location, int id){
+		mAddress = address;
+		mLocation = location;
+		mTitle = title;
+		mDescription = description;
+		mID = id;
 	}
 	
 	@Override
 	public String getTitle() {
-		return Title;
+		return mTitle;
 	}
 
 	@Override
 	public void setTitle(String title) {
-		Title = title;
+		mTitle = title;
 	}
 
 	@Override
 	public Pair<Float, Float> getLocation() {
-		return Location;
+		return mLocation;
 	}
 
 	@Override
 	public void setLocation(Pair<Float, Float> location) {
-		Location = location;
+		mLocation = location;
 	}
 
 	@Override
 	public String getDescription() {
-		return Description;
+		return mDescription;
 	}
 
 	@Override
 	public void setDescription(String desc) {
-		Description = desc;
+		mDescription = desc;
 	}
 
 	@Override
 	public String getAddress() {
-		return Address;
+		return mAddress;
 	}
 
 	@Override
 	public void setAddress(String address) {
-		Address = address;
+		mAddress = address;
 	}
 
 	@Override
 	public int getId() {
-		return Id;
+		return mID;
 	}
 
 	@Override
 	public void setId(int id) {
-		Id = id;
+		mID = id;
 	}
 
 }

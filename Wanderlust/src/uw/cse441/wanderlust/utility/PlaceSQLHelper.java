@@ -7,8 +7,10 @@ import android.util.Log;
 
 public class PlaceSQLHelper extends SQLiteOpenHelper {
 
+	//Brace for constants!
 	public static final String TABLE_POI = "poi";
 	public static final String TABLE_MEETUP = "meetup";
+	//Probably don't edit ^those two^
 
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_P_TITLE = "title";
@@ -16,11 +18,27 @@ public class PlaceSQLHelper extends SQLiteOpenHelper {
 	public static final String COLUMN_P_LAT = "lat";
 	public static final String COLUMN_P_LONG = "long";
 
+	public static final String COLUMN_M_TITLE = "title";
+	public static final String COLUMN_M_ADDRESS = "addr";
+	public static final String COLUMN_M_LAT = "lat";
+	public static final String COLUMN_M_LONG = "long";
+	public static final String COLUMN_M_INVITES = "invited";
+	public static final String COLUMN_M_DATE = "date";
+
 	private static final String DATABASE_NAME = "commments.db";
 	private static final int DATABASE_VERSION = 1;
 	private String TAG = "PlaceSQLHelper";
-	
-	
+
+	private static final String POI_TABLE_CREATE = "create table " + TABLE_POI + "(" + COLUMN_ID
+			+ " integer primary key autoincrement, " + COLUMN_P_TITLE + " text not null, "
+			+ COLUMN_P_ADDRESS + " text not null, " + COLUMN_P_LAT + "integer, " + COLUMN_P_LONG
+			+ "integer" + ");";
+
+	private static final String MEETUP_TABLE_CREATE = "create table " + TABLE_MEETUP + "("
+			+ COLUMN_ID + " integer primary key autoincrement, " + COLUMN_M_TITLE
+			+ " text not null, " + COLUMN_M_ADDRESS + " text not null, " + COLUMN_M_LAT
+			+ "integer, " + COLUMN_M_LONG + "integer, " + COLUMN_M_INVITES + "text not null, "
+			+ COLUMN_M_DATE + " text not null, " + ");";
 
 	public PlaceSQLHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -28,13 +46,17 @@ public class PlaceSQLHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		//db.execSQL(DATABASE_CREATE);
+		db.execSQL(POI_TABLE_CREATE);
+		Log.v(TAG, POI_TABLE_CREATE);
+		db.execSQL(MEETUP_TABLE_CREATE);
+		Log.v(TAG, MEETUP_TABLE_CREATE);
+		
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		Log.w(TAG , "Upgrading database from version " + oldVersion
-				+ " to " + newVersion + ", which will destroy all old data");
+		Log.w(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion
+				+ ", which will destroy all old data");
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_POI);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_MEETUP);
 

@@ -41,9 +41,9 @@ public class New_POI_Fragment extends Fragment {
 		
 		PlaceDataProvider pdp = ((MainActivity) getActivity()).getPlaceDataProvider();
 		
-		POI p = new POI(address, 
-        		addressToLocation(address), 
-        		name, description, pdp.getNextPoiId(), null);
+		POI p = new POI(name, 
+        		address, 
+        		description, addressToLocation(address), pdp.getNextPoiId());
         pdp.addPOI(p);
 
 	}
