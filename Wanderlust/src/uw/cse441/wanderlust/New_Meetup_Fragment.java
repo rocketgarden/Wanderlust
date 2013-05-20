@@ -3,6 +3,7 @@ package uw.cse441.wanderlust;
 import uw.cse441.wanderlust.utility.Meetup;
 import uw.cse441.wanderlust.utility.POI;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +18,8 @@ public class New_Meetup_Fragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (getArguments() != null) {
-			id = getArguments().getInt("id", -1);
-		} else {
-			id = -1;
-		}
+		Bundle extras = getActivity().getIntent().getExtras();
+		id = extras.getInt(MainActivity.REQUESTED_POI_KEY);
 	}
 	
 	@Override
