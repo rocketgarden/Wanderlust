@@ -16,7 +16,7 @@ public class Meetup_Detail_Fragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//get id from bundle
-		id = getArguments().getInt("id", -1);
+		id = Integer.getInteger(MainActivity.REQUESTED_MEETUP_KEY);
 	}
 	
 	@Override
@@ -28,6 +28,9 @@ public class Meetup_Detail_Fragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
+		if (id == -1) {
+			return;
+		}
 		Meetup m = ((MainActivity) getActivity()).getPlaceDataProvider().getMeetup(id);
 		
 		if (m != null) {
@@ -40,8 +43,8 @@ public class Meetup_Detail_Fragment extends Fragment {
 		    TextView location = (TextView) getView().findViewById(R.id.text_address);
 		    location.setText(m.getAddress());
 		    
-		    TextView desc = (TextView) getView().findViewById(R.id.text_desc);
-		    desc.setText(m.getDate());
+		    TextView date = (TextView) getView().findViewById(R.id.text_datetime);
+		    date.setText(m.getDate());
 		}
 	}
 

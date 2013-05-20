@@ -1,5 +1,7 @@
 package uw.cse441.wanderlust.utility;
 
+import java.util.GregorianCalendar;
+
 import android.util.Pair;
 
 public class Meetup extends Place {
@@ -11,14 +13,14 @@ public class Meetup extends Place {
 	private String Date;
 	private String Invited;
 	
-	public Meetup(String address, Pair<Float, Float> location, String title, 
-					String description, int id, String date, String invited){
+	public Meetup(String title, String address, String description, 
+					Pair<Float, Float> location, int id, String invited){
 		Address = address;
 		Location = location;
 		Title = title;
 		Description = description;
 		Id = id;
-		Date = date;
+		Date = new GregorianCalendar().getTime().toString();
 		Invited = invited;
 	}
 	

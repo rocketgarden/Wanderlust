@@ -2,20 +2,17 @@
 <resources>
 
     <string name="app_name">Wanderlust</string>
-    
     <string name="title_section_map">Map</string>
     <string name="title_section_poi">POI</string>
     <string name="title_section_meetup">MeetUps</string>
     <string name="title_section_friends">Friends</string>
     <string name="title_section_profile">Profile</string>
-        
-    
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_addpoi">Add POI</string>
-    <string name="action_addmeetup">Add MeetUp</string><string name="new_poi_name_label">Name</string>
-    
+    <string name="action_addmeetup">Add MeetUp</string>
+    <string name="new_poi_name_label">Name</string>
     <string name="new_poi_address_label">Address</string>
     <string name="new_poi_description_label">Description</string>
     <string name="new_poi_photo_upload">Upload a photo (optional)</string>
@@ -28,12 +25,10 @@
     <string name="new_meetup_radio_text">All day event</string>
     <string name="new_meetup_invite_text">Invite (username or email addresses, separated by commas)</string>
     <string name="new_meetup_create_button">Create New MeetUp</string>
-    
-    
     <string name="app_name">Wanderlust</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-	<string name="meetup_name">Denny\'s</string>
+    <string name="meetup_name">Denny\'s</string>
     <string name="create_meetup">Create Meet Up</string>
     <string name="more_information">More Information</string>
     <string name="meet_up_details">Meet up details</string>
@@ -45,7 +40,9 @@
     <string name="hint_search_pois">Search for Points of Interest</string>
     <string name="hint_search_meetups">Search for MeetUps</string>
     <string name="menu_search">Search</string>
-    
-    
+    <string name="title_activity_poi__detail">POI_Detail</string>
+    <string name="title_activity_meetup__detail">Meetup_Detail</string>
+    <string name="title_activity_new__poi">New_POI</string>
+    <string name="title_activity_new__meetup">New_Meetup</string>
 
 </resources>

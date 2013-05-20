@@ -40,13 +40,14 @@
 	    android:orientation="horizontal" >
 
 	    <Button
-			android:id="@+id/testButton"
+			android:id="@+id/showDetailsButton"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_weight="0.35"
 		    android:textColor="#C6C6C6"
 		    android:background="#3D3D3D"
 		    android:text="Details"
+		    android:onClick="showDetails"
 		    android:layout_margin="2dp" />
 
 	    <Button
@@ -57,6 +58,7 @@
 		    android:textColor="#C6C6C6"
 		    android:background="#3D3D3D"
 		    android:text="MeetUp"
+		    android:onClick="createMeetup"
 		    android:layout_margin="2dp"  />
 	</LinearLayout>
 		

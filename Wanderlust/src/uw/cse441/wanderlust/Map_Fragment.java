@@ -89,13 +89,13 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 		topBar.bringToFront();
 		String title = marker.getTitle();
 		((TextView) getActivity().findViewById(R.id.markerId)).setText(title);
-		if (title.charAt(0) == 'm') { // marker represents a maeetup
+		if (title.charAt(0) == 'm') { // marker represents a meetup
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
 			meetupButton.setVisibility(View.GONE);
 			Meetup m = ((MainActivity) getActivity()).getPlaceDataProvider().getMeetup(Integer.parseInt(title.substring(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(m.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(m.getTitle());
-			topBar.setBackgroundColor(Color.parseColor("#19FF19"));
+			topBar.setBackgroundColor(Color.parseColor("#A3FFA3"));
 			closeButton.setBackgroundResource(R.drawable.hide2);
 		} else { // marker represents a poi
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
