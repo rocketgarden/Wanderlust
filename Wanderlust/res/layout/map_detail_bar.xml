@@ -65,11 +65,10 @@
 		<Button
 		    android:id="@+id/closeButton"
 		    style="?android:attr/buttonStyleSmall"
-		    android:layout_marginTop="5dp" 
-		    android:layout_width="127dp"
-		    android:layout_height="35dp"
-		    android:background="@drawable/hide1"
-		    android:onClick="closeDetails"/>
-    
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:background="@drawable/collapse"
+		    android:onClick="closeDetails" />
 
 </LinearLayout>
