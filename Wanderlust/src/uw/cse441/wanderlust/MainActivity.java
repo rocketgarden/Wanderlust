@@ -281,6 +281,8 @@ public class MainActivity extends Activity {
 			if (mFragment != null) {
 				// Detach the fragment, because another one is being attached
 				ft.detach(mFragment);
+		  		LinearLayout topBar = (LinearLayout) mActivity.findViewById(R.id.topBar);
+		  		topBar.setVisibility(View.GONE);
 			}
 		}
 
