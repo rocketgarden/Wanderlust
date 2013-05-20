@@ -5,6 +5,7 @@ import java.util.List;
 
 import uw.cse441.wanderlust.utility.Meetup;
 import uw.cse441.wanderlust.utility.POI;
+import uw.cse441.wanderlust.utility.BasicPlaceProvider;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -43,7 +44,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		pdp = new PlaceDataProvider();
+		pdp = new BasicPlaceProvider();
 		loadDatabase();
 
 		ActionBar actionBar = getActionBar();
