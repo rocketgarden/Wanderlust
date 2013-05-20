@@ -44,8 +44,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		pdp = new BasicPlaceProvider();
-		loadDatabase();
+		pdp = new BasicPlaceProvider(this);
 
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -84,35 +83,7 @@ public class MainActivity extends Activity {
 
 	}
 
-	public void loadDatabase() {
-		// create pois
-		// N 51st St & Meridian Ave N Seattle
-		POI p1 = new POI("Orange Statue",
-				"5020 Meridian Avenue North, Seattle, WA", null,
-				addressToLocation("5020 Meridian Avenue North, Seattle, WA"), pdp.getNextPoiId());
-		pdp.addPOI(p1);
-
-		POI p2 = new POI("Historic Landmark",
-				"N 57th Street, Seattle, WA", null, addressToLocation("N 57th Street, Seattle, WA"),
-				pdp.getNextPoiId());
-		pdp.addPOI(p2);
-
-		POI p3 = new POI("Diner",
-				"5413 Meridian Avenue North, Seattle, WA", null, addressToLocation("5413 Meridian Avenue North, Seattle, WA"),
-				pdp.getNextPoiId());
-		pdp.addPOI(p3);
-
-		// create meetups
-		Meetup m1 = new Meetup("Cool Park",
-				"3875 N 51st St Seattle, Wa", null, addressToLocation("3875 N 51st St Seattle"),
-				pdp.getnextMeetupId(), "You, Johnny007, T63");
-		pdp.addMeetup(m1);
-
-		Meetup m2 = new Meetup("Boat Rentals",
-				"5050 8th Avenue Northeast, Seattle, WA", null, addressToLocation("5050 8th Avenue Northeast, Seattle, WA"),
-				pdp.getnextMeetupId(), "You, Dude2341, Patrick123");
-		pdp.addMeetup(m2);
-	}
+	
 
 	private Pair<Float, Float> addressToLocation(String streetAddress) {
 		Geocoder coder = new Geocoder(this);
