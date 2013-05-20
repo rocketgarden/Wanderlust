@@ -5,7 +5,6 @@ import java.util.List;
 
 import uw.cse441.wanderlust.utility.Meetup;
 import uw.cse441.wanderlust.utility.POI;
-import uw.cse441.wanderlust.utility.BasicPlaceProvider;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import uw.cse441.wanderlust.utility.SQLPlaceProvider;
 import android.app.ActionBar;
@@ -22,9 +21,7 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -119,13 +116,6 @@ public class MainActivity extends Activity {
 		return latLong;
 	}
 
-	// closes popup on map page
-	public void closeDetails(View v) {
-		LinearLayout topBar = (LinearLayout) findViewById(R.id.topBar);
-		topBar.setVisibility(View.GONE);
-		Button b = (Button) findViewById(R.id.meetUpButton);
-		b.setVisibility(View.VISIBLE);
-	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -187,22 +177,6 @@ public class MainActivity extends Activity {
 		ft1.commit();
 		getActionBar().setSelectedNavigationItem(2);
 	}
-
-//	public void cancelPOI(View v) {
-//		Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
-//		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-//		ft1.remove(poi);
-//		ft1.commit();
-//		getActionBar().setSelectedNavigationItem(1);
-//	}
-//
-//	public void cancelMeetup(View v) {
-//		Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
-//		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-//		ft1.remove(poi);
-//		ft1.commit();
-//		getActionBar().setSelectedNavigationItem(2);
-//	}
 
 	public void showDetails(View v) {
 		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();
@@ -266,8 +240,6 @@ public class MainActivity extends Activity {
 			if (mFragment != null) {
 				// Detach the fragment, because another one is being attached
 				ft.detach(mFragment);
-		  		LinearLayout topBar = (LinearLayout) mActivity.findViewById(R.id.topBar);
-		  		topBar.setVisibility(View.GONE);
 			}
 		}
 
