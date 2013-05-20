@@ -4,23 +4,27 @@ import java.io.IOException;
 import java.util.List;
 
 import uw.cse441.wanderlust.utility.Meetup;
+import uw.cse441.wanderlust.utility.POI;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import uw.cse441.wanderlust.utility.SQLPlaceProvider;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
 public class New_Meetup extends Activity {
 	
 	private PlaceDataProvider pdp;
+	private int mID;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,10 @@ public class New_Meetup extends Activity {
 		pdp = new SQLPlaceProvider(this);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		Intent intent = getIntent();
+		mID = intent.getIntExtra(MainActivity.REQUESTED_MEETUP_KEY, -1);
+		
 	}
 
 	/**
@@ -45,6 +53,20 @@ public class New_Meetup extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		if (mID == -1) {
+			return;
+		}
+		POI p = pdp.getPOI(mID);
+		
+		if (p != null) {   
+			((EditText) findViewById(R.id.poi_field)).setText(p.getTitle());
+			((EditText) findViewById(R.id.address_text)).setText(p.getAddress());
+		}
 	}
 
 	@Override
@@ -108,6 +130,18 @@ public class New_Meetup extends Activity {
 			latLong = new Pair<Float, Float>((float) 0, (float) 0);
 		}
 		return latLong;
+	}
+	
+	@Override
+	public void onStop(){
+		super.onStop();
+		pdp.close();
+	}
+	
+	@Override
+	public void onStart(){
+		super.onStart();
+		pdp.open();
 	}
 
 }
