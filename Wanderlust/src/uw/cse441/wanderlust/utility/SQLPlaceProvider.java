@@ -129,6 +129,7 @@ public class SQLPlaceProvider implements PlaceDataProvider {
 		values.put(PlaceSQLHelper.COLUMN_M_LONG, meetup.getLocation().second);
 		values.put(PlaceSQLHelper.COLUMN_ID, meetup.getId());
 		values.put(PlaceSQLHelper.COLUMN_M_DATE, meetup.getDate());
+		values.put(PlaceSQLHelper.COLUMN_M_INVITES, meetup.getInvited());
 		// XXX Should really have a better way to deal with IDs
 
 		lastMid = database.insert(PlaceSQLHelper.TABLE_MEETUP, null, values);
