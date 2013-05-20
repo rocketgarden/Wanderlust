@@ -1,18 +1,32 @@
 package uw.cse441.wanderlust;
 
+import java.io.IOException;
+import java.util.List;
+
+import uw.cse441.wanderlust.utility.POI;
+import uw.cse441.wanderlust.utility.PlaceDataProvider;
+import uw.cse441.wanderlust.utility.SQLPlaceProvider;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.support.v4.app.NavUtils;
 
 public class New_POI extends Activity {
-	//TODO implement saving instance state
+	// TODO implement saving instance state
+
+	private PlaceDataProvider pdp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.newpoi);
+		pdp = new SQLPlaceProvider(this);
 		// Show the Up button in the action bar.
 		setupActionBar();
 	}
@@ -21,9 +35,7 @@ public class New_POI extends Activity {
 	 * Set up the {@link android.app.ActionBar}.
 	 */
 	private void setupActionBar() {
-
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-
 	}
 
 	@Override
@@ -48,6 +60,46 @@ public class New_POI extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void addPOI(View v) {
+		String name = ((EditText) findViewById(R.id.name_field)).getText().toString();
+		String address = ((EditText) findViewById(R.id.address_field)).getText().toString();
+		String description = ((EditText) findViewById(R.id.description_field)).getText().toString();
+
+		POI p = new POI(name, address, description, addressToLocation(address), pdp.getNextPoiId());
+		pdp.addPOI(p);
+
+	}
+
+	private Pair<Float, Float> addressToLocation(String streetAddress) {
+		Geocoder coder = new Geocoder(this);
+		List<Address> address;
+		Pair<Float, Float> latLong = null;
+		try {
+			address = coder.getFromLocationName(streetAddress, 5);
+			if (address != null && address.size() != 0) {
+				Address location = address.get(0);
+				latLong = new Pair<Float, Float>((float) location.getLatitude(),
+						(float) location.getLongitude());
+			}
+		} catch (IOException e) {
+			latLong = new Pair<Float, Float>((float) 0, (float) 0);
+			e.printStackTrace();
+		}
+		return latLong;
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		pdp.close();
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		pdp.open();
 	}
 
 }

@@ -1,22 +1,29 @@
 package uw.cse441.wanderlust;
 
+import uw.cse441.wanderlust.utility.POI;
+import uw.cse441.wanderlust.utility.PlaceDataProvider;
+import uw.cse441.wanderlust.utility.SQLPlaceProvider;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
 public class POI_Detail extends Activity {
 	
 	private int mID;
 	public static final String TAG = "POI_Detail_Activity";
+	
+	private PlaceDataProvider pdp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.poi_detail);
+		pdp = new SQLPlaceProvider(this);
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
@@ -63,6 +70,35 @@ public class POI_Detail extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		POI p = pdp.getPOI(mID);
+		
+		if (p != null) {
+		    TextView title = (TextView) findViewById(R.id.poi_title);
+		    title.setText(p.getTitle());
+		    
+		    TextView location = (TextView) findViewById(R.id.text_address);
+		    location.setText(p.getAddress());
+		    
+		    TextView desc = (TextView) findViewById(R.id.text_desc);
+		    desc.setText(p.getDescription());
+		}
+	}
+	
+	@Override
+	public void onStop(){
+		super.onStop();
+		pdp.close();
+	}
+	
+	@Override
+	public void onStart(){
+		super.onStart();
+		pdp.open();
 	}
 
 }

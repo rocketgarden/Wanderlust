@@ -1,5 +1,7 @@
 package uw.cse441.wanderlust;
 
+import uw.cse441.wanderlust.utility.PlaceDataProvider;
+import uw.cse441.wanderlust.utility.SQLPlaceProvider;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -8,11 +10,14 @@ import android.view.View;
 import android.support.v4.app.NavUtils;
 
 public class New_Meetup extends Activity {
+	
+	private PlaceDataProvider pdp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.newmeetup);
+		pdp = new SQLPlaceProvider(this);
 		// Show the Up button in the action bar.
 		setupActionBar();
 	}

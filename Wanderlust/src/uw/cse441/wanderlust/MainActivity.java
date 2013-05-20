@@ -85,6 +85,7 @@ public class MainActivity extends Activity {
 		pdp.close();
 	}
 	
+	@Override
 	public void onStart(){
 		super.onStart();
 		pdp.open();
