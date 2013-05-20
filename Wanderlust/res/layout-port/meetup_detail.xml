@@ -32,7 +32,7 @@
             android:textSize="20sp" />
     </LinearLayout>
 
-   <TextView
+    <TextView
         android:id="@+id/title_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,6 +63,7 @@
         android:id="@+id/text_attending"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="0.43"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
         android:textColor="#171717" />
 
@@ -80,6 +81,7 @@
         android:id="@+id/text_datetime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="0.29"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque viverra ipsum pellentesque."
         android:textColor="#171717" />
 
