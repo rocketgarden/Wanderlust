@@ -1,12 +1,21 @@
 package uw.cse441.wanderlust;
 
+import java.io.IOException;
+import java.util.List;
+
+import uw.cse441.wanderlust.utility.Meetup;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import uw.cse441.wanderlust.utility.SQLPlaceProvider;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.support.v4.app.NavUtils;
 
 public class New_Meetup extends Activity {
@@ -66,8 +75,39 @@ public class New_Meetup extends Activity {
 		// add to database
 
 		// verify success?
+		String name = ((EditText) findViewById(R.id.poi_field)).getText().toString();
+		String address = ((EditText) findViewById(R.id.address_layout)).getText().toString();
+		String description = ((EditText) findViewById(R.id.descr_input)).getText().toString();
+		String invited = ((EditText) findViewById(R.id.invite_input_field)).getText().toString();
+		String date = ((EditText) findViewById(R.id.date_field2)).getText().toString();
+		String time = ((EditText) findViewById(R.id.time_input)).getText().toString();
 
+		Meetup m = new Meetup(name, address, description, addressToLocation(address),
+				pdp.getnextMeetupId(), invited);
+		pdp.addMeetup(m);
+		
 		finish();
+	}
+	
+	private Pair<Float, Float> addressToLocation(String streetAddress) {
+		Geocoder coder = new Geocoder(this);
+		List<Address> address;
+		Pair<Float, Float> latLong = null;
+		try {
+			address = coder.getFromLocationName(streetAddress, 5);
+			if (address != null && address.size() != 0) {
+				Address location = address.get(0);
+				latLong = new Pair<Float, Float>((float) location.getLatitude(),
+						(float) location.getLongitude());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			Log.e("new meetup", "Could not parse address!");
+		}
+		if (latLong == null) {
+			latLong = new Pair<Float, Float>((float) 0, (float) 0);
+		}
+		return latLong;
 	}
 
 }
