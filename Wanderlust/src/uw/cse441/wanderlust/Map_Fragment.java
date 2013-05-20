@@ -88,6 +88,7 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 		topBar.setVisibility(View.VISIBLE);
 		topBar.bringToFront();
 		String title = marker.getTitle();
+		((TextView) getActivity().findViewById(R.id.markerId)).setText(title);
 		if (title.charAt(0) == 'm') { // marker represents a maeetup
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
 			meetupButton.setVisibility(View.GONE);

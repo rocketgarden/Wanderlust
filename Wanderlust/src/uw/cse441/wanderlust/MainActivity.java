@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * This is the main, and probably only activity for the application. All the
@@ -164,7 +165,6 @@ public class MainActivity extends Activity {
 			Fragment mFragment = Fragment.instantiate(this,
 					New_POI_Fragment.class.getName());
 			FragmentTransaction ft = getFragmentManager().beginTransaction();
-			;
 			ft.add(android.R.id.content, mFragment, "newpoi");
 			ft.commit();
 			return true;
@@ -172,7 +172,6 @@ public class MainActivity extends Activity {
 			Fragment mFragment1 = Fragment.instantiate(this,
 					New_Meetup_Fragment.class.getName());
 			FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-			;
 			ft1.add(android.R.id.content, mFragment1, "newmeetup");
 			ft1.commit();
 			return true;
@@ -194,7 +193,6 @@ public class MainActivity extends Activity {
 		pdp.addPOI(p);
 		Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
 		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-		;
 		ft1.remove(poi);
 		ft1.commit();
 		getActionBar().setSelectedNavigationItem(1);
@@ -228,7 +226,6 @@ public class MainActivity extends Activity {
 	public void cancelPOI(View v) {
 		Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
 		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-		;
 		ft1.remove(poi);
 		ft1.commit();
 		getActionBar().setSelectedNavigationItem(1);
@@ -237,10 +234,44 @@ public class MainActivity extends Activity {
 	public void cancelMeetup(View v) {
 		Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
 		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-		;
 		ft1.remove(poi);
 		ft1.commit();
 		getActionBar().setSelectedNavigationItem(2);
+	}
+	
+	public void showDetails(View v) {
+		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();
+		int id = title.charAt(1);
+		Bundle b = new Bundle();
+		b.putInt("id", id);
+		if (title.charAt(0) == 'm') { // its a meetup
+			Fragment mFragment1 = Fragment.instantiate(this,
+					Meetup_Detail_Fragment.class.getName());
+			FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+			mFragment1.setArguments(b);
+			ft1.add(android.R.id.content, mFragment1, "meetupDetail");
+			ft1.commit();
+		} else { // its a poi
+			Fragment mFragment1 = Fragment.instantiate(this,
+					POI_Detail_Fragment.class.getName());
+			FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+			mFragment1.setArguments(b);
+			ft1.add(android.R.id.content, mFragment1, "poiDetail");
+			ft1.commit();
+		}
+	}
+	
+	public void createMeetup(View v) {
+		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();
+		int id = title.charAt(1);
+		Bundle b = new Bundle();
+		b.putInt("id", id);
+		Fragment mFragment1 = Fragment.instantiate(this,
+				New_Meetup_Fragment.class.getName());
+		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+		mFragment1.setArguments(b);
+		ft1.add(android.R.id.content, mFragment1, "newmeetup");
+		ft1.commit();
 	}
 
 	public static class TabListener<T extends Fragment> implements

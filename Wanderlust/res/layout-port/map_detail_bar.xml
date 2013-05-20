@@ -6,6 +6,15 @@
 	android:background="#33B5E5"
     android:gravity="center"
     android:orientation="vertical">
+    
+    <TextView
+	    android:id="@+id/markerId"
+	   	android:layout_marginTop="5dp" 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:visibility="gone"
+	    android:text=""
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
 	    android:id="@+id/topBar_title"
@@ -58,8 +67,7 @@
 		    android:layout_width="127dp"
 		    android:layout_height="35dp"
 		    android:background="@drawable/hide1"
-		    android:onClick="closeDetails"
-		    />
+		    android:onClick="closeDetails"/>
     
 
 </LinearLayout>
