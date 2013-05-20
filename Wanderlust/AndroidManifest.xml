@@ -46,6 +46,39 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDmzCI907W5enW-OEmFVkwc83VmTENcSFw" />
+
+        <activity
+            android:name="uw.cse441.wanderlust.POI_Detail"
+            android:label="@string/title_activity_poi__detail"
+            android:parentActivityName="uw.cse441.wanderlust.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uw.cse441.wanderlust.MainActivity" />
+        </activity>
+        <activity
+            android:name="uw.cse441.wanderlust.Meetup_Detail"
+            android:label="@string/title_activity_meetup__detail"
+            android:parentActivityName="uw.cse441.wanderlust.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uw.cse441.wanderlust.MainActivity" />
+        </activity>
+        <activity
+            android:name="uw.cse441.wanderlust.New_POI"
+            android:label="@string/title_activity_new__poi"
+            android:parentActivityName="uw.cse441.wanderlust.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uw.cse441.wanderlust.MainActivity" />
+        </activity>
+        <activity
+            android:name="uw.cse441.wanderlust.New_Meetup"
+            android:label="@string/title_activity_new__meetup"
+            android:parentActivityName="uw.cse441.wanderlust.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uw.cse441.wanderlust.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

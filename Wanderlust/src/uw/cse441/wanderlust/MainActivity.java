@@ -11,6 +11,7 @@ import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -162,18 +163,23 @@ public class MainActivity extends Activity {
 		// Handle item selection
 		switch (item.getItemId()) {
 		case R.id.action_addpoi:
-			Fragment mFragment = Fragment.instantiate(this,
-					New_POI_Fragment.class.getName());
-			FragmentTransaction ft = getFragmentManager().beginTransaction();
-			ft.add(android.R.id.content, mFragment, "newpoi");
-			ft.commit();
+//			Fragment mFragment = Fragment.instantiate(this,
+//					New_POI_Fragment.class.getName());
+//			FragmentTransaction ft = getFragmentManager().beginTransaction();
+//			ft.add(android.R.id.content, mFragment, "newpoi");
+//			ft.commit();
+			Intent i = new Intent(this, New_POI.class);
+			startActivity(i);
+			
 			return true;
 		case R.id.action_addmeetup:
-			Fragment mFragment1 = Fragment.instantiate(this,
-					New_Meetup_Fragment.class.getName());
-			FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-			ft1.add(android.R.id.content, mFragment1, "newmeetup");
-			ft1.commit();
+//			Fragment mFragment1 = Fragment.instantiate(this,
+//					New_Meetup_Fragment.class.getName());
+//			FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+//			ft1.add(android.R.id.content, mFragment1, "newmeetup");
+//			ft1.commit();
+			Intent j = new Intent(this, New_Meetup.class);
+			startActivity(j);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

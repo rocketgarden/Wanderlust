@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:background="#3D3D3D"
-            android:onClick="cancelMeetup"
+            android:onClick="cancel"
             android:text="Cancel"
             android:textColor="#C6C6C6" />
 
@@ -164,7 +164,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:background="#3D3D3D"
-	        android:onClick="addMeetup"
+	        android:onClick="submit"
 	        android:text="@string/new_meetup_create_button"
 	        android:textColor="#C6C6C6" />
     </LinearLayout>

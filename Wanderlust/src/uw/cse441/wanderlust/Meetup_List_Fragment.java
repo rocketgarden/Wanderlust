@@ -7,6 +7,7 @@ import java.util.Map;
 
 import uw.cse441.wanderlust.utility.Meetup;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -77,7 +78,9 @@ public class Meetup_List_Fragment extends ListFragment {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
-				Toast.makeText(getActivity(), pos + " Clicked", Toast.LENGTH_SHORT).show();
+				Intent i = new Intent(getActivity(), Meetup_Detail.class);
+				i.putExtra(MainActivity.REQUESTED_MEETUP_KEY, pos);
+				startActivity(i);
 			}
 
 		});
