@@ -138,4 +138,16 @@ public class BasicPlaceProvider implements PlaceDataProvider {
 	public int getnextMeetupId() {
 		return meetups.size();
 	}
+
+	@Override
+	public void open() {
+		//do nothing
+		
+	}
+
+	@Override
+	public void close() {
+		//do nothing
+		
+	}
 }
