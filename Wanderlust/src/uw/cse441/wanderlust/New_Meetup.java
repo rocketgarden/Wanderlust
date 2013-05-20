@@ -76,11 +76,11 @@ public class New_Meetup extends Activity {
 
 		// verify success?
 		String name = ((EditText) findViewById(R.id.poi_field)).getText().toString();
-		String address = ((EditText) findViewById(R.id.address_layout)).getText().toString();
+		String address = ((EditText) findViewById(R.id.address_text)).getText().toString();
 		String description = ((EditText) findViewById(R.id.descr_input)).getText().toString();
 		String invited = ((EditText) findViewById(R.id.invite_input_field)).getText().toString();
-		String date = ((EditText) findViewById(R.id.date_field2)).getText().toString();
-		String time = ((EditText) findViewById(R.id.time_input)).getText().toString();
+		//String date = ((EditText) findViewById(R.id.date_field2)).getText().toString();
+		//String time = ((EditText) findViewById(R.id.time_input)).getText().toString();
 
 		Meetup m = new Meetup(name, address, description, addressToLocation(address),
 				pdp.getnextMeetupId(), invited);

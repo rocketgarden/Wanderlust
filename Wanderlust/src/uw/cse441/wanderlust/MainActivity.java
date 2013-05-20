@@ -218,11 +218,10 @@ public class MainActivity extends Activity {
 	}
 
 	public void createMeetup(View v) {
-		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();
-
-		Intent i = new Intent(this, Meetup_Detail.class);
-		i.putExtra(MainActivity.REQUESTED_MEETUP_KEY, Integer.parseInt(title.substring(1)));
-		startActivity(i);
+		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();		
+		Intent j = new Intent(this, New_Meetup.class);
+		j.putExtra(MainActivity.REQUESTED_MEETUP_KEY, Integer.parseInt(title.substring(1)));
+		startActivity(j);
 	}
 
 	public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
