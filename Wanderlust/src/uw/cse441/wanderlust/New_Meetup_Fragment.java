@@ -17,7 +17,11 @@ public class New_Meetup_Fragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		id = getArguments().getInt("id", -1);
+		if (getArguments() != null) {
+			id = getArguments().getInt("id", -1);
+		} else {
+			id = -1;
+		}
 	}
 	
 	@Override
@@ -30,12 +34,16 @@ public class New_Meetup_Fragment extends Fragment {
 	public void onResume() {
 		super.onResume();
 		
-		POI p = ((MainActivity) getActivity()).getPlaceDataProvider().getPOI(id);
-		
-		if (p != null) {
-		    ((EditText) getView().findViewById(R.id.poi_field)).setText(p.getTitle());
-		    
-		    ((EditText) getView().findViewById(R.id.address_text)).setText(p.getAddress());
+		if (id != -1) {
+			POI p = ((MainActivity) getActivity()).getPlaceDataProvider().getPOI(id);
+			
+			if (p != null) {
+			    ((EditText) getView().findViewById(R.id.poi_field)).setText(p.getTitle());
+			    
+			    ((EditText) getView().findViewById(R.id.address_text)).setText(p.getAddress());
+			}
+	
 		}
+
 	}
 }
