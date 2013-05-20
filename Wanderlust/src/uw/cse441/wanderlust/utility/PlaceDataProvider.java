@@ -19,5 +19,9 @@ public interface PlaceDataProvider {
 	public abstract int getNextPoiId();
 
 	public abstract int getnextMeetupId();
+	
+	public abstract void open();
+	
+	public abstract void close();
 
 }
