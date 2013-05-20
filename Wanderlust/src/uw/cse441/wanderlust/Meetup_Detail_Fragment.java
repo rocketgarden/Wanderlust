@@ -40,8 +40,8 @@ public class Meetup_Detail_Fragment extends Fragment {
 		    TextView location = (TextView) getView().findViewById(R.id.text_address);
 		    location.setText(m.getAddress());
 		    
-		    TextView desc = (TextView) getView().findViewById(R.id.text_desc);
-		    desc.setText(m.getDate());
+		    TextView date = (TextView) getView().findViewById(R.id.text_datetime);
+		    date.setText(m.getDate());
 		}
 	}
 

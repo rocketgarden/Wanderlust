@@ -1,17 +1,23 @@
 package uw.cse441.wanderlust;
 
+import uw.cse441.wanderlust.utility.Meetup;
+import uw.cse441.wanderlust.utility.POI;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class New_Meetup_Fragment extends Fragment {
 	static final String TAG = "Meetup_Fragment";
+	private int id;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		id = getArguments().getInt("id", -1);
 	}
 	
 	@Override
@@ -23,5 +29,13 @@ public class New_Meetup_Fragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
+		
+		POI p = ((MainActivity) getActivity()).getPlaceDataProvider().getPOI(id);
+		
+		if (p != null) {
+		    ((EditText) getView().findViewById(R.id.poi_field)).setText(p.getTitle());
+		    
+		    ((EditText) getView().findViewById(R.id.address_text)).setText(p.getAddress());
+		}
 	}
 }

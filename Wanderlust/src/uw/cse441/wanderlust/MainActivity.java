@@ -241,7 +241,7 @@ public class MainActivity extends Activity {
 	
 	public void showDetails(View v) {
 		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();
-		int id = title.charAt(1);
+		int id = Character.getNumericValue((title.charAt(1)));
 		Bundle b = new Bundle();
 		b.putInt("id", id);
 		if (title.charAt(0) == 'm') { // its a meetup
@@ -263,7 +263,7 @@ public class MainActivity extends Activity {
 	
 	public void createMeetup(View v) {
 		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();
-		int id = title.charAt(1);
+		int id = Character.getNumericValue((title.charAt(1)));
 		Bundle b = new Bundle();
 		b.putInt("id", id);
 		Fragment mFragment1 = Fragment.instantiate(this,
