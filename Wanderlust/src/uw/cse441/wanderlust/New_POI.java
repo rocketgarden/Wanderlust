@@ -62,7 +62,25 @@ public class New_POI extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void addPOI(View v) {
+	@Override
+	public void onStop() {
+		super.onStop();
+		pdp.close();
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		pdp.open();
+	}
+	
+	public void cancel(View v) {
+		finish(); // Just die
+	}
+
+	public void submit(View v) {
+		//TODO Verify fields
+
 		String name = ((EditText) findViewById(R.id.name_field)).getText().toString();
 		String address = ((EditText) findViewById(R.id.address_field)).getText().toString();
 		String description = ((EditText) findViewById(R.id.description_field)).getText().toString();
@@ -70,6 +88,9 @@ public class New_POI extends Activity {
 		POI p = new POI(name, address, description, addressToLocation(address), pdp.getNextPoiId());
 		pdp.addPOI(p);
 
+		// verify success?
+
+		finish();
 	}
 
 	private Pair<Float, Float> addressToLocation(String streetAddress) {
@@ -88,18 +109,6 @@ public class New_POI extends Activity {
 			e.printStackTrace();
 		}
 		return latLong;
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-		pdp.close();
-	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-		pdp.open();
 	}
 
 }

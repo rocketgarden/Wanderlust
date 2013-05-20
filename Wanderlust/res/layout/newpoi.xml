@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:background="#3D3D3D"
-            android:onClick="cancelPOI"
+            android:onClick="cancel"
             android:text="Cancel"
             android:textColor="#C6C6C6" />
                 
@@ -123,7 +123,7 @@
 	        android:layout_height="wrap_content"
 	        android:background="#3D3D3D"
 	        android:gravity="center"
-	        android:onClick="addPOI"
+	        android:onClick="submit"
 	        android:text="@string/new_poi_create_button"
 	        android:textColor="#C6C6C6" />
 	    </LinearLayout>
