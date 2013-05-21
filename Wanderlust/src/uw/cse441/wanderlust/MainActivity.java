@@ -190,7 +190,7 @@ public class MainActivity extends Activity {
 	public void createMeetup(View v) {
 		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();		
 		Intent j = new Intent(this, New_Meetup.class);
-		j.putExtra(MainActivity.REQUESTED_MEETUP_KEY, Integer.parseInt(title.substring(1)));
+		j.putExtra(MainActivity.REQUESTED_POI_KEY, Integer.parseInt(title.substring(1)));
 		startActivity(j);
 	}
 
