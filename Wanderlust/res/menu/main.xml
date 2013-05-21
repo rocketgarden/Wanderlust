@@ -8,7 +8,7 @@
     </item>
     <item
         android:id="@+id/action_addpoi"
-        android:icon="@drawable/place"
+        android:icon="@drawable/new_place"
         android:showAsAction="ifRoom|withText"
         android:title="@string/action_addpoi">
     </item>
