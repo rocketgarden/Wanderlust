@@ -131,16 +131,14 @@
     <EditText
         android:id="@+id/invite_input_field"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:layout_weight="0.00"
         android:background="#FFFFFF"
         android:ems="10"
-        android:imeOptions="actionDone"
-        android:inputType="text" >
-    </EditText>
+        android:imeOptions="actionNext"
+        android:inputType="text" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -170,7 +168,6 @@
             android:onClick="submit"
             android:text="@string/new_meetup_create_button"
             android:textColor="#C6C6C6" />
-
     </LinearLayout>
 
 </LinearLayout>
