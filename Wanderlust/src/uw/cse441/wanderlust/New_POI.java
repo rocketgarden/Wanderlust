@@ -84,6 +84,7 @@ public class New_POI extends Activity {
 		String name = ((EditText) findViewById(R.id.name_field)).getText().toString();
 		String address = ((EditText) findViewById(R.id.address_field)).getText().toString();
 		String description = ((EditText) findViewById(R.id.description_field)).getText().toString();
+		Pair<Float, Float> ll = this.addressToLocation(address);
 
 		POI p = new POI(name, address, description, addressToLocation(address), pdp.getNextPoiId());
 		pdp.addPOI(p);
@@ -96,7 +97,7 @@ public class New_POI extends Activity {
 	private Pair<Float, Float> addressToLocation(String streetAddress) {
 		Geocoder coder = new Geocoder(this);
 		List<Address> address;
-		Pair<Float, Float> latLong = null;
+		Pair<Float, Float> latLong = new Pair<Float, Float>((float) 0, (float) 0);
 		try {
 			address = coder.getFromLocationName(streetAddress, 5);
 			if (address != null && address.size() != 0) {
@@ -105,7 +106,6 @@ public class New_POI extends Activity {
 						(float) location.getLongitude());
 			}
 		} catch (IOException e) {
-			latLong = new Pair<Float, Float>((float) 0, (float) 0);
 			e.printStackTrace();
 		}
 		return latLong;

@@ -30,7 +30,7 @@ public class PlaceSQLHelper extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "commments.db";
 
-	private static final int DATABASE_VERSION = 7;
+	private static final int DATABASE_VERSION = 8;
 	// ^^need to increment this whenever we modify the database definition
 
 	private String TAG = "PlaceSQLHelper";

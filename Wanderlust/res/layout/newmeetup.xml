@@ -20,11 +20,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"        
         android:background="#FFFFFF"
         android:ems="10"
-        android:inputType="text" />
+        android:imeOptions="actionNext"
+        android:inputType="text|textCapWords" />
 
     <TextView
         android:id="@+id/address_label_text"
@@ -43,6 +44,7 @@
         android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:inputType="textPostalAddress" />
 
     <TextView
@@ -62,6 +64,7 @@
         android:layout_marginRight="5dp"        
         android:background="#FFFFFF"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:inputType="date" />
 
     <LinearLayout
@@ -97,6 +100,7 @@
         android:layout_marginRight="5dp"        
         android:background="#FFFFFF"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:inputType="time" />
 
     <TextView
@@ -116,6 +120,7 @@
         android:layout_marginRight="5dp"
         android:background="#FFFFFF"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:inputType="textMultiLine" />
 
     <TextView
@@ -138,6 +143,7 @@
         android:layout_weight="0.00"
         android:background="#FFFFFF"
         android:ems="10"
+        android:imeOptions="actionDone"
         android:inputType="textMultiLine" >
     </EditText>
     

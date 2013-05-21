@@ -114,7 +114,7 @@ public class New_Meetup extends Activity {
 	private Pair<Float, Float> addressToLocation(String streetAddress) {
 		Geocoder coder = new Geocoder(this);
 		List<Address> address;
-		Pair<Float, Float> latLong = null;
+		Pair<Float, Float> latLong = new Pair<Float, Float>((float) 0, (float) 0);
 		try {
 			address = coder.getFromLocationName(streetAddress, 5);
 			if (address != null && address.size() != 0) {
@@ -124,10 +124,6 @@ public class New_Meetup extends Activity {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-			Log.e("new meetup", "Could not parse address!");
-		}
-		if (latLong == null) {
-			latLong = new Pair<Float, Float>((float) 0, (float) 0);
 		}
 		return latLong;
 	}
