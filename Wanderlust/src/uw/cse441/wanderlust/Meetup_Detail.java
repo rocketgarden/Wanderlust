@@ -27,13 +27,13 @@ public class Meetup_Detail extends Activity {
 
 		// Show the Up button in the action bar.
 		setupActionBar();
-		
+
 		Intent intent = getIntent();
 		mID = intent.getIntExtra(MainActivity.REQUESTED_MEETUP_KEY, -1);
-		
-		if(mID < 0){
+
+		if (mID < 0) {
 			Log.w(TAG, "Tried to view MeetUp without valid ID!");
-			NavUtils.navigateUpFromSameTask(this); //go home
+			NavUtils.navigateUpFromSameTask(this); // go home
 		}
 	}
 
@@ -66,41 +66,53 @@ public class Meetup_Detail extends Activity {
 			//
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
+		case R.id.action_addpoi:
+
+			Intent i = new Intent(this, New_POI.class);
+			i.putExtra(MainActivity.REQUESTED_POI_KEY, -1);
+			startActivity(i);
+			return true;
+		case R.id.action_addmeetup:
+
+			Intent j = new Intent(this, New_Meetup.class);
+			j.putExtra(MainActivity.REQUESTED_MEETUP_KEY, -1);
+			startActivity(j);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
-	
+
 	@Override
-	public void onResume(){
+	public void onResume() {
 		super.onResume();
 		Meetup m = pdp.getMeetup(mID);
-		
+
 		if (m != null) {
-		    TextView title = (TextView) findViewById(R.id.title_meetup);
-		    title.setText(m.getTitle());
-		    
-		    TextView invited = (TextView) findViewById(R.id.text_attending);
-		    invited.setText(m.getInvited());
-		    
-		    TextView location = (TextView) findViewById(R.id.text_address);
-		    location.setText(m.getAddress());
-		    
-		    TextView date = (TextView) findViewById(R.id.text_datetime);
-		    date.setText(m.getDate());
+			TextView title = (TextView) findViewById(R.id.title_meetup);
+			title.setText(m.getTitle());
+
+			TextView invited = (TextView) findViewById(R.id.text_attending);
+			invited.setText(m.getInvited());
+
+			TextView location = (TextView) findViewById(R.id.text_address);
+			location.setText(m.getAddress());
+
+			TextView date = (TextView) findViewById(R.id.text_datetime);
+			date.setText(m.getDate());
 		}
 	}
-	
+
 	@Override
-	public void onStop(){
+	public void onStop() {
 		super.onStop();
 		pdp.close();
 	}
-	
+
 	@Override
-	public void onStart(){
+	public void onStart() {
 		super.onStart();
 		pdp.open();
 	}
-	
 
 }

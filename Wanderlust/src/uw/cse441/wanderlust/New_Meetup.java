@@ -31,7 +31,7 @@ public class New_Meetup extends Activity {
 		setupActionBar();
 		
 		Intent intent = getIntent();
-		mID = intent.getIntExtra(MainActivity.REQUESTED_MEETUP_KEY, -1);
+		mID = intent.getIntExtra(MainActivity.REQUESTED_POI_KEY, -1);
 		
 	}
 
