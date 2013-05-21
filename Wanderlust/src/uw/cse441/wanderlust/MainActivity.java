@@ -16,7 +16,6 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -165,6 +164,7 @@ public class MainActivity extends Activity {
 
 		Meetup m = new Meetup(name, address, description, addressToLocation(address),
 				pdp.getnextMeetupId(), invited);
+		m.setDate(date + " " + time);
 		pdp.addMeetup(m);
 		Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
 		FragmentTransaction ft1 = getFragmentManager().beginTransaction();

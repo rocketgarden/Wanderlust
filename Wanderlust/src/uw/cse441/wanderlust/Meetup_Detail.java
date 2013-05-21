@@ -1,17 +1,16 @@
 package uw.cse441.wanderlust;
 
 import uw.cse441.wanderlust.utility.Meetup;
-import uw.cse441.wanderlust.utility.POI;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import uw.cse441.wanderlust.utility.SQLPlaceProvider;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.support.v4.app.NavUtils;
 
 public class Meetup_Detail extends Activity {
 

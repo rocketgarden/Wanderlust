@@ -22,7 +22,7 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:textColor="#3D3D3D"
-	    android:text="Orange Statue"
+	    android:text="@string/label_blank"
 	    android:textAppearance="?android:attr/textAppearanceMedium" />
 	
 	<TextView
@@ -30,7 +30,7 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:textColor="#3D3D3D"
-	    android:text="N 51st St &amp; Meridan Ave N"
+	    android:text="@string/label_blank"
 	    android:textAppearance="?android:attr/textAppearanceMedium" />
 
 	<LinearLayout
@@ -41,23 +41,25 @@
 
 	    <Button
 			android:id="@+id/showDetailsButton"
+			style="?android:attr/buttonBarButtonStyle"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_weight="0.35"
 		    android:textColor="#C6C6C6"
 		    android:background="#3D3D3D"
-		    android:text="Details"
+		    android:text="@string/label_details"
 		    android:onClick="showDetails"
 		    android:layout_margin="2dp" />
 
 	    <Button
 		    android:id="@+id/meetUpButton"
+		    style="?android:attr/buttonBarButtonStyle"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_weight="0.35"
 		    android:textColor="#C6C6C6"
 		    android:background="#3D3D3D"
-		    android:text="MeetUp"
+		    android:text="@string/label_meetup"
 		    android:onClick="createMeetup"
 		    android:layout_margin="2dp"  />
 	</LinearLayout>

@@ -7,19 +7,15 @@ import uw.cse441.wanderlust.utility.Meetup;
 import uw.cse441.wanderlust.utility.POI;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import uw.cse441.wanderlust.utility.SQLPlaceProvider;
+import android.app.Activity;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Intent;
-import android.util.Log;
 import android.util.Pair;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.support.v4.app.NavUtils;
 
 public class New_Meetup extends Activity {
 	
@@ -46,13 +42,6 @@ public class New_Meetup extends Activity {
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
 	}
 	
 	@Override

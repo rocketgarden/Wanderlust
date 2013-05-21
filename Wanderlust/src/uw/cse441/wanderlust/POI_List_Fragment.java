@@ -14,10 +14,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 public class POI_List_Fragment extends ListFragment {
 	public static final String TAG = "POI_Fragment";

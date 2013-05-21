@@ -67,7 +67,7 @@
         android:imeOptions="actionDone"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"        
-        android:inputType="textMultiLine" />
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/poi_name_text"
@@ -112,16 +112,18 @@
         
         <Button
             android:id="@+id/cancel_poi_button"
+            style="android:buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:background="#3D3D3D"
             android:onClick="cancel"
-            android:text="Cancel"
+            android:text="@string/label_cancel"
             android:textColor="#C6C6C6" />
                 
 	    <Button
 	        android:id="@+id/create_poi_button"
+	        style="android:buttonBarButtonStyle"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:background="#3D3D3D"
@@ -129,6 +131,7 @@
 	        android:onClick="submit"
 	        android:text="@string/new_poi_create_button"
 	        android:textColor="#C6C6C6" />
+
 	    </LinearLayout>
 
 </LinearLayout>
