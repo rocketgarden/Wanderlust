@@ -17,6 +17,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -27,15 +28,15 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 	static final String TAG = "Map_Fragment";
 	private Location currentLocation;
 	private CameraPosition cameraPos;
-	
+
 	LinearLayout mTopBar;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		cameraPos = CameraPosition.fromLatLngZoom(new LatLng(47.671369, -122.342603), 14.0f);
-		
+
 		currentLocation = new Location("default");
 		currentLocation.setLatitude(47.671369);
 		currentLocation.setLongitude(-122.342603);
@@ -47,8 +48,8 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = super.onCreateView(inflater, container, savedInstanceState);
-		mTopBar = (LinearLayout) inflater.inflate(R.layout.map_detail_bar,
-				(ViewGroup)v).findViewById(R.id.topBar);
+		mTopBar = (LinearLayout) inflater.inflate(R.layout.map_detail_bar, (ViewGroup) v)
+				.findViewById(R.id.topBar);
 		mTopBar.setVisibility(View.GONE);
 
 		// load top bar but set to hidden
@@ -65,7 +66,7 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 		super.onStart();
 		CameraUpdate cu = CameraUpdateFactory.newCameraPosition(cameraPos);
 		getMap().moveCamera(cu);
-		
+
 		getMap().setMyLocationEnabled(true);
 		getMap().setOnMapClickListener(new OnMapClickListener() {
 
@@ -94,14 +95,22 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 		for (POI p : ((MainActivity) getActivity()).getPlaceDataProvider().getPOIList()) {
 			LatLng loc = new LatLng(p.getLocation().first, p.getLocation().second);
 			getMap().addMarker(
-					new MarkerOptions().position(loc).title('p' + Integer.toString(p.getId())));
+					new MarkerOptions()
+							.position(loc)
+							.title('p' + Integer.toString(p.getId()))
+							.icon(BitmapDescriptorFactory
+									.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 		}
 
 		// Add meetups to map
 		for (Meetup m : ((MainActivity) getActivity()).getPlaceDataProvider().getMeetupList()) {
 			LatLng loc = new LatLng(m.getLocation().first, m.getLocation().second);
 			getMap().addMarker(
-					new MarkerOptions().position(loc).title('m' + Integer.toString(m.getId())));
+					new MarkerOptions()
+							.position(loc)
+							.title('m' + Integer.toString(m.getId()))
+							.icon(BitmapDescriptorFactory
+									.defaultMarker(110f)));
 		}
 
 		getMap().setOnMarkerClickListener(this);
