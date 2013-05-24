@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,7 +70,7 @@ public class New_Meetup extends Activity {
 			//
 			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
 			//
-			//NavUtils.navigateUpFromSameTask(this);
+			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
