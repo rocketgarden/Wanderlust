@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/acceptplace"
+        android:icon="@drawable/accept"
+        android:menuCategory="confim"
+        android:onClick="submit"
+        android:orderInCategory="1"
+        android:title="Submit">
+    </item>
+    <item
+        android:id="@+id/cancelplace"
+        android:icon="@drawable/cancel"
+        android:menuCategory="confirm"
+        android:onClick="cancel"
+        android:orderInCategory="2"
+        android:title="Cancel">
+    </item>
+
+</menu>
