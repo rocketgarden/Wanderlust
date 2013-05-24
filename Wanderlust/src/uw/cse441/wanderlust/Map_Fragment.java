@@ -110,7 +110,7 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 							.position(loc)
 							.title('m' + Integer.toString(m.getId()))
 							.icon(BitmapDescriptorFactory
-									.defaultMarker(110f)));
+									.defaultMarker(45f)));
 		}
 
 		getMap().setOnMarkerClickListener(this);
@@ -129,7 +129,7 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 					Integer.parseInt(title.substring(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(m.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(m.getTitle());
-			mTopBar.setBackgroundColor(Color.parseColor("#99CC00"));
+			mTopBar.setBackgroundColor(Color.parseColor("#FFD033"));
 		} else { // marker represents a poi
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
 			meetupButton.setVisibility(View.VISIBLE);
