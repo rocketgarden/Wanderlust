@@ -129,6 +129,7 @@ public class SQLPlaceProvider implements PlaceDataProvider {
 		values.put(PlaceSQLHelper.COLUMN_M_LONG, meetup.getLocation().second);
 		values.put(PlaceSQLHelper.COLUMN_ID, meetup.getId());
 		values.put(PlaceSQLHelper.COLUMN_M_DATE, meetup.getDate());
+		values.put(PlaceSQLHelper.COLUMN_M_INVITES, meetup.getInvited());
 		// XXX Should really have a better way to deal with IDs
 
 		lastMid = database.insert(PlaceSQLHelper.TABLE_MEETUP, null, values);
@@ -190,7 +191,15 @@ public class SQLPlaceProvider implements PlaceDataProvider {
 		addPOI(p1);
 
 		POI p2 = new POI("Historic Landmark", "N 57th Street, Seattle, WA",
-				"A landmark of historic value", addressToLocation("N 57th Street, Seattle, WA"),
+				"Built on a steep hillside, Ernst Park is comprised of a spiraling path" +
+				" of water-permeable concrete, bordered by artful garden-bed walls that" +
+				" park designer Lynn Thompson created to serve as seating. The path spirals" +
+				" down from N 35th St. to a small amphitheater, and continues down via stairway" +
+				" to N 34th St. The park provides wheelchair access to the community room of the" +
+				" Fremont Library (a Carnegie library) next door. The park also provides pedestrian" +
+				" connections between the library, commercial core, and residential. There is enough" +
+				" seating in this small park for 150 to 200 people. The sloped beds are landscaped with" +
+				" barberry and other sustainable native vegetation.", addressToLocation("N 57th Street, Seattle, WA"),
 				getNextPoiId());
 		addPOI(p2);
 

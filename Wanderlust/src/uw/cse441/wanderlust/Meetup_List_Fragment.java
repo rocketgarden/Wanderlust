@@ -13,11 +13,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class Meetup_List_Fragment extends ListFragment {
 	public static final String TAG = "Meetup_Fragment";

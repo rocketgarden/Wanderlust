@@ -18,13 +18,13 @@
         android:id="@+id/poi_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"        
         android:background="#FFFFFF"
         android:ems="10"
-        android:inputType="text" />
+        android:imeOptions="actionNext"
+        android:inputType="text|textCapWords" />
 
     <TextView
         android:id="@+id/address_label_text"
@@ -39,10 +39,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"        
+        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:inputType="textPostalAddress" />
 
     <TextView
@@ -63,10 +64,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"        
         android:background="#FFFFFF"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:inputType="date" />
 
     <LinearLayout
@@ -79,8 +81,6 @@
             android:id="@+id/time_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/date_field_area"
             android:layout_marginLeft="5dp"
             android:text="@string/new_meetup_time" />
 
@@ -98,10 +98,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"        
         android:background="#FFFFFF"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:inputType="time" />
 
     <TextView
@@ -117,18 +118,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:inputType="textMultiLine" />
+        android:imeOptions="actionNext"
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/invite_text_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/invite_input"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="@string/new_meetup_invite_text" />
@@ -138,40 +138,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"        
-        android:layout_weight="0.00"
         android:background="#FFFFFF"
         android:ems="10"
-        android:inputType="textMultiLine" >
-    </EditText>
-    
-	<LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_marginLeft="5dp"
-	    android:layout_marginTop="20dp"
-	    android:layout_marginRight="5dp"
-	    android:orientation="horizontal" >
+        android:imeOptions="actionNext"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/cancel_meetup_button"
+            style="android:buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:background="#3D3D3D"
             android:onClick="cancel"
-            android:text="Cancel"
+            android:text="@string/label_cancel"
             android:textColor="#C6C6C6" />
 
-	    <Button
-	        android:id="@+id/create_meetup_button"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:background="#3D3D3D"
-	        android:onClick="submit"
-	        android:text="@string/new_meetup_create_button"
-	        android:textColor="#C6C6C6" />
+        <Button
+            android:id="@+id/create_meetup_button"
+            style="android:buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3D3D3D"
+            android:onClick="submit"
+            android:text="@string/new_meetup_create_button"
+            android:textColor="#C6C6C6" />
     </LinearLayout>
 
 </LinearLayout>

@@ -1,17 +1,27 @@
 package uw.cse441.wanderlust;
 
+import java.io.IOException;
+import java.util.List;
+
+import uw.cse441.wanderlust.utility.Meetup;
+import uw.cse441.wanderlust.utility.POI;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import uw.cse441.wanderlust.utility.SQLPlaceProvider;
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
-import android.support.v4.app.NavUtils;
+import android.widget.EditText;
 
 public class New_Meetup extends Activity {
 	
 	private PlaceDataProvider pdp;
+	private int mID;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +30,10 @@ public class New_Meetup extends Activity {
 		pdp = new SQLPlaceProvider(this);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		Intent intent = getIntent();
+		mID = intent.getIntExtra(MainActivity.REQUESTED_POI_KEY, -1);
+		
 	}
 
 	/**
@@ -30,12 +44,19 @@ public class New_Meetup extends Activity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 	}
-
+	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+	public void onResume(){
+		super.onResume();
+		if (mID == -1) {
+			return;
+		}
+		POI p = pdp.getPOI(mID);
+		
+		if (p != null) {   
+			((EditText) findViewById(R.id.poi_field)).setText(p.getTitle());
+			((EditText) findViewById(R.id.address_text)).setText(p.getAddress());
+		}
 	}
 
 	@Override
@@ -49,7 +70,7 @@ public class New_Meetup extends Activity {
 			//
 			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
 			//
-			//NavUtils.navigateUpFromSameTask(this);
+			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -66,8 +87,47 @@ public class New_Meetup extends Activity {
 		// add to database
 
 		// verify success?
+		String name = ((EditText) findViewById(R.id.poi_field)).getText().toString();
+		String address = ((EditText) findViewById(R.id.address_text)).getText().toString();
+		String description = ((EditText) findViewById(R.id.descr_input)).getText().toString();
+		String invited = ((EditText) findViewById(R.id.invite_input_field)).getText().toString();
+		//String date = ((EditText) findViewById(R.id.date_field2)).getText().toString();
+		//String time = ((EditText) findViewById(R.id.time_input)).getText().toString();
 
+		Meetup m = new Meetup(name, address, description, addressToLocation(address),
+				pdp.getnextMeetupId(), invited);
+		pdp.addMeetup(m);
+		
 		finish();
+	}
+	
+	private Pair<Float, Float> addressToLocation(String streetAddress) {
+		Geocoder coder = new Geocoder(this);
+		List<Address> address;
+		Pair<Float, Float> latLong = new Pair<Float, Float>((float) 0, (float) 0);
+		try {
+			address = coder.getFromLocationName(streetAddress, 5);
+			if (address != null && address.size() != 0) {
+				Address location = address.get(0);
+				latLong = new Pair<Float, Float>((float) location.getLatitude(),
+						(float) location.getLongitude());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return latLong;
+	}
+	
+	@Override
+	public void onStop(){
+		super.onStop();
+		pdp.close();
+	}
+	
+	@Override
+	public void onStart(){
+		super.onStart();
+		pdp.open();
 	}
 
 }

@@ -65,11 +65,20 @@ public class POI_Detail extends Activity {
 			//
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
-		case R.id.action_addmeetup:
-			//go to add meetup screen, pass this id as intent
+		case R.id.action_addpoi:
+			
+			Intent i = new Intent(this, New_POI.class);
+			startActivity(i);
 			return true;
+		case R.id.action_addmeetup:
+
+			Intent j = new Intent(this, New_Meetup.class);
+			j.putExtra(MainActivity.REQUESTED_POI_KEY, mID);
+			startActivity(j);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
 	
 	@Override

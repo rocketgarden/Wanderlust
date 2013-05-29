@@ -5,7 +5,6 @@ import java.util.List;
 
 import uw.cse441.wanderlust.utility.Meetup;
 import uw.cse441.wanderlust.utility.POI;
-import uw.cse441.wanderlust.utility.BasicPlaceProvider;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import uw.cse441.wanderlust.utility.SQLPlaceProvider;
 import android.app.ActionBar;
@@ -17,14 +16,11 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -101,7 +97,7 @@ public class MainActivity extends Activity {
 	private Pair<Float, Float> addressToLocation(String streetAddress) {
 		Geocoder coder = new Geocoder(this);
 		List<Address> address;
-		Pair<Float, Float> latLong = null;
+		Pair<Float, Float> latLong = new Pair<Float, Float>((float) 0, (float) 0);
 		try {
 			address = coder.getFromLocationName(streetAddress, 5);
 			if (address != null && address.size() != 0) {
@@ -111,21 +107,10 @@ public class MainActivity extends Activity {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-			Log.e(TAG, "Could not parse address!");
-		}
-		if (latLong == null) {
-			latLong = new Pair<Float, Float>((float) 0, (float) 0);
 		}
 		return latLong;
 	}
 
-	// closes popup on map page
-	public void closeDetails(View v) {
-		LinearLayout topBar = (LinearLayout) findViewById(R.id.topBar);
-		topBar.setVisibility(View.GONE);
-		Button b = (Button) findViewById(R.id.meetUpButton);
-		b.setVisibility(View.VISIBLE);
-	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -179,6 +164,7 @@ public class MainActivity extends Activity {
 
 		Meetup m = new Meetup(name, address, description, addressToLocation(address),
 				pdp.getnextMeetupId(), invited);
+		m.setDate(date + " " + time);
 		pdp.addMeetup(m);
 		Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
 		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
@@ -187,22 +173,6 @@ public class MainActivity extends Activity {
 		ft1.commit();
 		getActionBar().setSelectedNavigationItem(2);
 	}
-
-//	public void cancelPOI(View v) {
-//		Fragment poi = getFragmentManager().findFragmentByTag("newpoi");
-//		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-//		ft1.remove(poi);
-//		ft1.commit();
-//		getActionBar().setSelectedNavigationItem(1);
-//	}
-//
-//	public void cancelMeetup(View v) {
-//		Fragment poi = getFragmentManager().findFragmentByTag("newmeetup");
-//		FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-//		ft1.remove(poi);
-//		ft1.commit();
-//		getActionBar().setSelectedNavigationItem(2);
-//	}
 
 	public void showDetails(View v) {
 		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();
@@ -218,11 +188,10 @@ public class MainActivity extends Activity {
 	}
 
 	public void createMeetup(View v) {
-		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();
-
-		Intent i = new Intent(this, Meetup_Detail.class);
-		i.putExtra(MainActivity.REQUESTED_MEETUP_KEY, Integer.parseInt(title.substring(1)));
-		startActivity(i);
+		String title = ((TextView) findViewById(R.id.markerId)).getText().toString();		
+		Intent j = new Intent(this, New_Meetup.class);
+		j.putExtra(MainActivity.REQUESTED_POI_KEY, Integer.parseInt(title.substring(1)));
+		startActivity(j);
 	}
 
 	public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
@@ -267,8 +236,6 @@ public class MainActivity extends Activity {
 			if (mFragment != null) {
 				// Detach the fragment, because another one is being attached
 				ft.detach(mFragment);
-		  		LinearLayout topBar = (LinearLayout) mActivity.findViewById(R.id.topBar);
-		  		topBar.setVisibility(View.GONE);
 			}
 		}
 

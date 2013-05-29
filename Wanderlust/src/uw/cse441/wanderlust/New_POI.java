@@ -6,16 +6,15 @@ import java.util.List;
 import uw.cse441.wanderlust.utility.POI;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import uw.cse441.wanderlust.utility.SQLPlaceProvider;
+import android.app.Activity;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.v4.app.NavUtils;
 import android.util.Pair;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.support.v4.app.NavUtils;
 
 public class New_POI extends Activity {
 	// TODO implement saving instance state
@@ -36,13 +35,6 @@ public class New_POI extends Activity {
 	 */
 	private void setupActionBar() {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
 	}
 
 	@Override
@@ -96,7 +88,7 @@ public class New_POI extends Activity {
 	private Pair<Float, Float> addressToLocation(String streetAddress) {
 		Geocoder coder = new Geocoder(this);
 		List<Address> address;
-		Pair<Float, Float> latLong = null;
+		Pair<Float, Float> latLong = new Pair<Float, Float>((float) 0, (float) 0);
 		try {
 			address = coder.getFromLocationName(streetAddress, 5);
 			if (address != null && address.size() != 0) {
@@ -105,7 +97,6 @@ public class New_POI extends Activity {
 						(float) location.getLongitude());
 			}
 		} catch (IOException e) {
-			latLong = new Pair<Float, Float>((float) 0, (float) 0);
 			e.printStackTrace();
 		}
 		return latLong;
