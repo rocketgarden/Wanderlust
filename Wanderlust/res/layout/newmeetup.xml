@@ -53,6 +53,11 @@
         android:layout_marginTop="10dp"
         android:text="@string/new_meetup_date" />
 
+    <DatePicker
+        android:id="@+id/datePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/date_field2"
         android:layout_width="match_parent"
