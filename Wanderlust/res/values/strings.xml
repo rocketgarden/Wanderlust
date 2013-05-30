@@ -46,6 +46,8 @@
     <string name="label_blank">---</string>
     <string name="label_details">Details</string>
     <string name="label_meetup">Create MeetUp</string>
+    <string name="new_poi_current_location">Use my current location</string>
+    <string name="new_meetUp_private">Make this meetUp private</string>
     
 
 </resources>

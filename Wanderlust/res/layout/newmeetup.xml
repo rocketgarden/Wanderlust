@@ -14,6 +14,12 @@
         android:layout_marginTop="5dp"
         android:text="@string/new_meetup_poi_name" />
 
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_meetUp_private" />
+
     <EditText
         android:id="@+id/poi_field"
         android:layout_width="match_parent"

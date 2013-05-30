@@ -36,6 +36,12 @@
         android:layout_marginLeft="5dp"
         android:text="@string/new_poi_address_label" />
 
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_poi_current_location" />
+
     <EditText
         android:id="@+id/address_field"
         android:layout_width="match_parent"
