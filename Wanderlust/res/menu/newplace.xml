@@ -4,18 +4,14 @@
     <item
         android:id="@+id/acceptplace"
         android:icon="@drawable/accept"
-        android:menuCategory="confim"
         android:onClick="submit"
         android:orderInCategory="1"
-        android:title="Submit">
-    </item>
+        android:title="Submit"/>
     <item
         android:id="@+id/cancelplace"
         android:icon="@drawable/cancel"
-        android:menuCategory="confirm"
         android:onClick="cancel"
         android:orderInCategory="2"
-        android:title="Cancel">
-    </item>
+        android:title="Cancel"/>
 
 </menu>
