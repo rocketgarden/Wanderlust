@@ -94,7 +94,12 @@ public class New_Meetup extends Activity {
 		//String date = ((EditText) findViewById(R.id.date_field2)).getText().toString();
 		//String time = ((EditText) findViewById(R.id.time_input)).getText().toString();
 
-		Meetup m = new Meetup(name, address, description, addressToLocation(address),
+		Pair<Float, Float> longLat = addressToLocation(address);
+		
+		if (mID != -1) {
+			longLat = new Pair<Float, Float>(longLat.first, (float) (longLat.second + 0.000725));
+		}
+		Meetup m = new Meetup(name, address, description, longLat,
 				pdp.getnextMeetupId(), invited);
 		pdp.addMeetup(m);
 		
