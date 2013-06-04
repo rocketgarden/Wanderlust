@@ -6,6 +6,12 @@
     android:background="#E8E8E8"
     android:orientation="vertical" >
 
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_meetUp_private" />
+
     <TextView
         android:id="@+id/poi_name_text"
         android:layout_width="wrap_content"
@@ -13,13 +19,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:text="@string/new_meetup_poi_name" />
-
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/new_meetUp_private" />
-
+    
     <EditText
         android:id="@+id/poi_field"
         android:layout_width="match_parent"
@@ -63,7 +63,8 @@
     <DatePicker
         android:id="@+id/datePicker1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/date_field2"
