@@ -5,65 +5,39 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/poi_title"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/picture_poi"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="POI Title"
-        android:textColor="#171717"
-        android:textSize="30sp" />
+        android:contentDescription="Picture of POI"
+        android:src="@drawable/diner" />
 
     <TextView
-        android:id="@+id/title_address"
+        android:id="@+id/poi_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="#3D3D3D"
-        android:text="@string/location"
-        android:textColor="#C6C6C6"
-        android:textSize="18sp" />
+        android:gravity="center"
+        android:text="POI Name"
+        android:textColor="#171717"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/text_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Location Info Text"
+        android:textSize="25sp"
+        android:layout_marginTop="25sp"
         android:textColor="#171717" />
-
-    <TextView
-        android:id="@+id/title_desc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:background="#3D3D3D"
-        android:text="Description"
-        android:textColor="#C6C6C6"
-        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/text_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Description and details"
+        android:textSize="25sp"
+        android:layout_marginTop="25sp"
         android:textColor="#171717" />
-
-    <TextView
-        android:id="@+id/title_picture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#3D3D3D"
-        android:text="@string/picture"
-        android:textColor="#C6C6C6"
-        android:textSize="18sp" />
-
-    <ImageView
-        android:id="@+id/picture_poi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:contentDescription="Picture of POI"
-        android:src="@drawable/diner" />
 
 </LinearLayout>
