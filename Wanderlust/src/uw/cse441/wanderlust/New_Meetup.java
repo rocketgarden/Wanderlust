@@ -1,6 +1,7 @@
 package uw.cse441.wanderlust;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 
 import uw.cse441.wanderlust.utility.Meetup;
@@ -8,20 +9,30 @@ import uw.cse441.wanderlust.utility.POI;
 import uw.cse441.wanderlust.utility.PlaceDataProvider;
 import uw.cse441.wanderlust.utility.SQLPlaceProvider;
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.FragmentTransaction;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.text.format.DateFormat;
 import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TimePicker;
 
 public class New_Meetup extends Activity {
 	
 	private PlaceDataProvider pdp;
 	private int mID;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +43,7 @@ public class New_Meetup extends Activity {
 		setupActionBar();
 		
 		Intent intent = getIntent();
-		mID = intent.getIntExtra(MainActivity.REQUESTED_POI_KEY, -1);
-		
+		mID = intent.getIntExtra(MainActivity.REQUESTED_POI_KEY, -1);	
 	}
 
 	/**
@@ -133,6 +143,89 @@ public class New_Meetup extends Activity {
 	public void onStart(){
 		super.onStart();
 		pdp.open();
+	}
+	
+	public void showDatePickerDialog(View v) {
+	    DialogFragment newFragment = new DatePickerFragment();
+	    newFragment.show(getFragmentManager(), "datePicker");
+	}
+		
+	public void showTimePickerDialog(View v) {
+	    DialogFragment newFragment = new TimePickerFragment();
+	    newFragment.show(getFragmentManager(), "timePicker");
+	}
+	
+	public static class DatePickerFragment extends DialogFragment
+    					implements DatePickerDialog.OnDateSetListener {
+		
+		@Override
+		public Dialog onCreateDialog(Bundle savedInstanceState) {
+			// Use the current date as the default date in the picker
+			final Calendar c = Calendar.getInstance();
+			int year = c.get(Calendar.YEAR);
+			int month = c.get(Calendar.MONTH);
+			int day = c.get(Calendar.DAY_OF_MONTH);
+			
+			// Create a new instance of DatePickerDialog and return it
+			return new DatePickerDialog(getActivity(), this, year, month, day);
+		}
+		@Override
+		public void onDateSet(DatePicker view, int year, int month, int day) {
+			// Do something with the date chosen by the user
+			New_Meetup a = (New_Meetup) getActivity();
+			TextView datefield = ((TextView) a.findViewById(R.id.date_field2));
+			datefield.setText(month + "/" + day + "/" + year);
+			
+			FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+			ft1.remove(getFragmentManager().findFragmentByTag("datePicker"));
+			ft1.commit();
+		}
+
+	}
+	
+	public static class TimePickerFragment extends DialogFragment
+			implements TimePickerDialog.OnTimeSetListener {
+	
+		@Override
+		public Dialog onCreateDialog(Bundle savedInstanceState) {
+			// Use the current time as the default values for the picker
+			final Calendar c = Calendar.getInstance();
+			int hour = c.get(Calendar.HOUR_OF_DAY);
+			int minute = c.get(Calendar.MINUTE);
+			
+			// Create a new instance of TimePickerDialog and return it
+			return new TimePickerDialog(getActivity(), this, hour, minute,
+			DateFormat.is24HourFormat(getActivity()));
+		}
+		
+		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+			// Do something with the time chosen by the user
+			String amPm;
+			if(hourOfDay > 11) {
+				amPm = "PM";
+			} else {
+				amPm = "AM";
+			}
+			
+			if (hourOfDay == 0) {
+				hourOfDay = 12;
+			} else if (hourOfDay > 12){
+				hourOfDay -= 12;
+			}
+			
+			String minuteLeadingZero = "";
+			if (minute < 10) {
+				minuteLeadingZero = "0";
+			}
+			
+			New_Meetup a = (New_Meetup) getActivity();
+			TextView timefield = ((TextView) a.findViewById(R.id.time_input));
+			timefield.setText(hourOfDay + ":" + minuteLeadingZero + minute + " " + amPm);
+			
+			FragmentTransaction ft1 = getFragmentManager().beginTransaction();
+			ft1.remove(getFragmentManager().findFragmentByTag("timePicker"));
+			ft1.commit();
+		}
 	}
 
 }
