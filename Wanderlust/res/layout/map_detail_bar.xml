@@ -3,65 +3,98 @@
     android:id="@+id/topBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-	android:background="#33B5E5"
+    android:background="#33B5E5"
     android:gravity="center"
-    android:orientation="vertical">
-    
-    <TextView
-	    android:id="@+id/markerId"
-	   	android:layout_marginTop="5dp" 
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:visibility="gone"
-	    android:text=""
-	    android:textAppearance="?android:attr/textAppearanceMedium" />
+    android:orientation="vertical" >
 
     <TextView
-	    android:id="@+id/topBar_title"
-	   	android:layout_marginTop="5dp" 
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:textColor="#3D3D3D"
-	    android:text="@string/label_blank"
-	    android:textAppearance="?android:attr/textAppearanceMedium" />
-	
-	<TextView
-	    android:id="@+id/topBar_address"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:textColor="#3D3D3D"
-	    android:text="@string/label_blank"
-	    android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:id="@+id/markerId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="gone" />
 
-	<LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="center"
-	    android:orientation="horizontal" >
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="1" >
 
-	    <Button
-			android:id="@+id/showDetailsButton"
-			style="?android:attr/buttonBarButtonStyle"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_weight="0.35"
-		    android:textColor="#C6C6C6"
-		    android:background="#3D3D3D"
-		    android:text="@string/label_details"
-		    android:onClick="showDetails"
-		    android:layout_margin="2dp" />
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:src="@android:drawable/btn_star" />
 
-	    <Button
-		    android:id="@+id/meetUpButton"
-		    style="?android:attr/buttonBarButtonStyle"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_weight="0.35"
-		    android:textColor="#C6C6C6"
-		    android:background="#3D3D3D"
-		    android:text="@string/label_meetup"
-		    android:onClick="createMeetup"
-		    android:layout_margin="2dp"  />
-	</LinearLayout>
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_column="0"
+            android:layout_gravity="left|top"
+            android:layout_row="0"
+            android:src="@android:drawable/btn_star" />
+
+        <TextView
+            android:id="@+id/topBar_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_row="0"
+            android:text="@string/label_blank"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#3D3D3D" />
+
+        <TextView
+            android:id="@+id/topBar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="10dp"
+            android:layout_row="0"
+            android:text="@string/label_blank"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#3D3D3D" />
+
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/showDetailsButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="0.35"
+            android:background="#3D3D3D"
+            android:onClick="showDetails"
+            android:text="@string/label_details"
+            android:textColor="#C6C6C6" />
+
+        <Button
+            android:id="@+id/meetUpButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="0.35"
+            android:background="#3D3D3D"
+            android:onClick="createMeetup"
+            android:text="@string/label_meetup"
+            android:textColor="#C6C6C6" />
+    </LinearLayout>
 
 </LinearLayout>

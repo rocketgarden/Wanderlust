@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:layout_marginTop="25sp"
+        android:layout_marginLeft="10sp"
         android:text="Location Info Text"
         android:textColor="#171717" />
 
@@ -42,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25sp"
+        android:layout_marginLeft="10sp"
         android:text="Attending"
         android:textColor="#171717"
         android:textSize="25sp" />
@@ -51,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25sp"
+        android:layout_marginLeft="10sp"
         android:text="Date and time"
         android:textColor="#171717"
         android:textSize="25sp" />
