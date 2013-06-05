@@ -16,55 +16,50 @@
         android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:visibility="gone" />
+	
+	<FrameLayout
+	    android:id="@+id/topBar2"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="1" >
-
-        <ImageButton
-            android:id="@+id/imageButton1"
+        <ImageView
+            android:id="@+id/imageIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_column="0"
             android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:src="@android:drawable/btn_star" />
-
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_column="0"
-            android:layout_gravity="left|top"
-            android:layout_row="0"
-            android:src="@android:drawable/btn_star" />
-
-        <TextView
-            android:id="@+id/topBar_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_row="0"
-            android:text="@string/label_blank"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#3D3D3D" />
-
-        <TextView
-            android:id="@+id/topBar_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="center_horizontal|top"
-            android:layout_marginTop="10dp"
-            android:layout_row="0"
-            android:text="@string/label_blank"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#3D3D3D" />
-
-    </GridLayout>
+            android:src="@android:drawable/btn_star" />
+        
+		<LinearLayout
+		    android:id="@+id/topBar1"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:gravity="center"
+		    android:orientation="vertical" >
+	        
+	        
+	        <TextView
+	            android:id="@+id/topBar_address"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:layout_marginTop="5dp"
+	            android:text="@string/label_blank"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="#3D3D3D" />
+	
+	        <TextView
+	            android:id="@+id/topBar_title"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal|top"
+	            android:text="@string/label_blank"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="#3D3D3D" />
+	    </LinearLayout>
+	</FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -129,6 +130,7 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 					Integer.parseInt(title.substring(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(m.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(m.getTitle());
+			((ImageView) getActivity().findViewById(R.id.imageIcon)).setImageResource(R.drawable.addgroup_icon);
 			mTopBar.setBackgroundColor(Color.parseColor("#FFD033"));
 		} else { // marker represents a poi
 			Button meetupButton = (Button) getActivity().findViewById(R.id.meetUpButton);
@@ -137,6 +139,7 @@ public class Map_Fragment extends MapFragment implements OnMarkerClickListener {
 					Integer.parseInt(title.substring(1)));
 			((TextView) getActivity().findViewById(R.id.topBar_address)).setText(p.getAddress());
 			((TextView) getActivity().findViewById(R.id.topBar_title)).setText(p.getTitle());
+			((ImageView) getActivity().findViewById(R.id.imageIcon)).setImageResource(R.drawable.new_place_icon);
 			mTopBar.setBackgroundColor(Color.parseColor("#33B5E5"));
 		}
 
