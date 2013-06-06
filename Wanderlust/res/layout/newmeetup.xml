@@ -70,7 +70,7 @@
         android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:text="Pick Date..."
+        android:text="Click to pick date..."
         android:textSize="19sp"
         android:textIsSelectable="true"
         android:onClick="showDatePickerDialog"/>
@@ -107,7 +107,7 @@
         android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:ems="10"
-		android:text="Pick Time..."
+		android:text="Click to pick time..."
         android:textSize="19sp"
         android:textIsSelectable="true"
         android:onClick="showTimePickerDialog"/>

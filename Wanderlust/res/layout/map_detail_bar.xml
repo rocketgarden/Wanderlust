@@ -39,6 +39,15 @@
 		    android:gravity="center"
 		    android:orientation="vertical" >
 	        
+	        	
+	        <TextView
+	            android:id="@+id/topBar_title"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal|top"
+	            android:text="@string/label_blank"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="#3D3D3D" />
 	        
 	        <TextView
 	            android:id="@+id/topBar_address"
@@ -46,15 +55,6 @@
 	            android:layout_height="wrap_content"
 	            android:layout_gravity="center"
 	            android:layout_marginTop="5dp"
-	            android:text="@string/label_blank"
-	            android:textAppearance="?android:attr/textAppearanceMedium"
-	            android:textColor="#3D3D3D" />
-	
-	        <TextView
-	            android:id="@+id/topBar_title"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:layout_gravity="center_horizontal|top"
 	            android:text="@string/label_blank"
 	            android:textAppearance="?android:attr/textAppearanceMedium"
 	            android:textColor="#3D3D3D" />
