@@ -44,8 +44,9 @@
 	            android:id="@+id/topBar_title"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:layout_gravity="center_horizontal|top"
+	            android:layout_gravity="center_horizontal"
 	            android:text="@string/label_blank"
+	            android:layout_marginTop="3dp"
 	            android:textAppearance="?android:attr/textAppearanceMedium"
 	            android:textColor="#3D3D3D" />
 	        
@@ -54,7 +55,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:layout_gravity="center"
-	            android:layout_marginTop="5dp"
+	            android:layout_marginTop="2dp"
 	            android:text="@string/label_blank"
 	            android:textAppearance="?android:attr/textAppearanceMedium"
 	            android:textColor="#3D3D3D" />
@@ -73,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:layout_weight="0.35"
+            android:layout_weight="0.27"
             android:background="#3D3D3D"
             android:onClick="showDetails"
             android:text="@string/label_details"
@@ -85,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            android:layout_weight="0.35"
+            android:layout_weight="0.12"
             android:background="#3D3D3D"
             android:onClick="createMeetup"
             android:text="@string/label_meetup"
